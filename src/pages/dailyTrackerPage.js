@@ -1,0 +1,1 @@
+// This is the page that shows the daily questions. We need: Navbar, header, content block 
