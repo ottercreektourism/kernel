@@ -6,10 +6,10 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/login';
 import DailyTracker from './pages/dailyTrackerPage';
-import gridPage from './pages/gridPage';
-import individualDay from './pages/individualDay';
-import resources from './pages/resources';
-import wordsOfEncouragement from './pages/wordsOfEncouragement';
+import GridPage from './pages/gridPage';
+import IndividualDay from './pages/individualDay';
+import Resources from './pages/resources';
+import WordsOfEncouragement from './pages/wordsOfEncouragement';
 
 
 function App() {
@@ -18,17 +18,16 @@ function App() {
    
     <Router>
       <NavBar />
-
-    <Routes>
       <div className="container">
-        <Route exact path='/login' exact element={<Home />} />
+    <Routes>
+        <Route exact path='/' element={<Login />} />
         <Route path='/dailytracker' element={<DailyTracker/>} />
-        <Route path='/grid' element={<gridPage/>} />
-        <Route path='/individualday' element={<individualDay/>} />
-        <Route path='/resources' element={<resources/>} />
-        <Route path='/wordsofencouragement' element={<wordsOfEncouragement/>} />
-        </div>
+        <Route path='/grid' element={<GridPage/>} />
+        <Route path='/individualday' element={<IndividualDay/>} />
+        <Route path='/resources' element={<Resources/>} />
+        <Route path='/wordsofencouragement' element={<WordsOfEncouragement/>} />
     </Routes>
+    </div>
     </Router>
 
   );
