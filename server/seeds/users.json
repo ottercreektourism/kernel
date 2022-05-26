@@ -1,0 +1,12 @@
+{
+    "firstName": "John",
+    "email": "john.doe@gmail.com",
+    "password": "password",
+    "collection": [
+        {
+            "kernels": []
+        }
+
+    ]
+
+}
