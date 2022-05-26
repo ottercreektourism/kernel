@@ -1,1 +1,0 @@
-// This is the page that shows the whole grid. We need: Navbar, header, content block
