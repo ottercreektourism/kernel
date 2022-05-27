@@ -3,19 +3,25 @@ import NavBar from './components/NavBar';
 import Login from './pages/login'
 import "./App.css";
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './pages/login';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import Home from './pages/login';
 import DailyTracker from './pages/dailyTrackerPage';
 import GridPage from './pages/gridPage';
 import IndividualDay from './pages/individualDay';
 import Resources from './pages/resources';
 import WordsOfEncouragement from './pages/wordsOfEncouragement';
+// import DailyTrackerForm from './components/DailyTracker';
+// import ReactDOM from 'react-dom'
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import { fab } from '@fortawesome/free-brands-svg-icons'
+// import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+// library.add(fab, faCheckSquare, faCoffee)
 
 
 function App() {
   return (
 
-   
     <Router>
       <NavBar />
       <div className="container">
