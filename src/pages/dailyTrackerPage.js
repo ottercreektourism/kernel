@@ -15,8 +15,10 @@ function DailyTracker() {
     <div className="grid">
         <div className="row">
             <div className="column-left"><Header /></div>
-            <div className="column-left"><TodaysActivitiesDT /></div>
         </div>
+         <div className="row1">
+            <div className="column-right"><TodaysActivitiesDT /></div>
+         </div>
         <div className="row">
             <div className="column-left"><DailyTrackerForm /></div>
         </div>

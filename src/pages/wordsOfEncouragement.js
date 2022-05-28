@@ -1,9 +1,10 @@
 import React from "react";
+import KernelsOfEncouragement from '../components/kernelsOfEncouragementForm'
 
 function WordsOfEncouragement() {
   return (
     <>
-we can do eeeeeet
+    <KernelsOfEncouragement/>
     </>
   );
 }
