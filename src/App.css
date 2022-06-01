@@ -64,17 +64,19 @@
   justify-content: flex-end;
 }
 
-/* .grid {
+.grid {
   font-family: sans-serif;
   text-align: center;
 }
 
 .grid {
-  height: 100vh;
+  /* Makes the whole thing scrollable */
+  height: 150vw;
+  /* adjust width to % to make the whole screen skinnier including title*/
   width: 100vw;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible;
   color: #000000;
   font-size: 13px;
   line-height: 1;
@@ -102,7 +104,7 @@ button:hover {
   color: white;
 }
 
-input {
+/* input {
   width: 246px;
   font-size: 16px;
   line-height: 20px;
@@ -110,7 +112,7 @@ input {
   padding: 10px;
   border: 1px solid black;
   cursor: pointer;
-}
+} */
 
 input::placeholder {
   color: gray;
@@ -126,38 +128,46 @@ ol,
 dd {
   margin: 0;
   padding: 0;
+  /* height: 10px;
+  width: 10px; */
   list-style: none;
 }
 
-main {
+/* li {
+  height: 5%;
+  width: 5%;
+} */
+
+/* main {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
+} */
 
 h1 {
   font-size: 16px;
   font-weight: bold;
 }
 
-.row {
+/* .row {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .item {
   width: 40px;
-  min-width: 40px;
+  /* min-width: 40px; */
   height: 40px;
   min-height: 40px;
-  background-color: aquamarine;
+  background-color: rgb(94, 93, 196);
   margin: 10px;
+  border-radius: 10px;
 }
 
 .item.selected {
-  background-color: red;
+  background-color: rgb(41, 11, 124);
 }
 
 input {
@@ -166,4 +176,4 @@ input {
 
 label {
   margin-right: 15px;
-} */
+}

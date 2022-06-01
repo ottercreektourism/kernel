@@ -20,7 +20,7 @@ function KernelsOfEncouragement() {
       <div className="form-group col-md-8"></div>
       <label htmlFor="exampleFormControlTextarea1"></label>
       <textarea
-        placeholder="Type some pords of encouragement"
+        placeholder="Type some words of encouragement"
         className="form-control"
         id="exampleFormControlTextarea1"
         rows="3"
