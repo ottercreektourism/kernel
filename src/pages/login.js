@@ -1,9 +1,48 @@
-import React from "react";
+import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
-
-
+// import { useMutation } from '@apollo/client';
+import Auth from '../utils/auth';
+import { Form, Button, Alert } from 'react-bootstrap';
 
 function Login() {
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  // const [loginUser] = useMutation(LOGIN_USER);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // check if form has everything
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    // try {
+    //   const { data } = await loginUser({
+    //     variables: { ...userFormData }
+    //   });
+    //   console.log(data)
+    //   Auth.login(data.login.token);
+    // } catch (err) {
+    //   console.error(err);
+    //   setShowAlert(true);
+    // }
+
+    setUserFormData({
+      name: '',
+      email: '',
+      password: '',
+    });
+  };
+
   return (
 
     <>
@@ -11,7 +50,53 @@ function Login() {
       </div>
       <div><p className=" mx-auto d-flex justify-content-center">trackin the kernels</p>
       </div>
-<div className="row d-flex pt-4">
+
+      <div className="row d-flex pt-4">
+<div className="col-md-4 mx-auto">
+<Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+          Something went wrong with your login credentials!
+        </Alert>
+        <Form.Group>
+        <h3>Log in</h3>
+          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Enter email'
+            name='email'
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Control
+            type='password'
+            placeholder='Enter password'
+            name='password'
+            onChange={handleInputChange}
+            value={userFormData.password}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+        </Form.Group>
+        <Button
+          disabled={!(userFormData.email && userFormData.password)}
+          type='submit'
+          variant='btn btn-dark btn-lg btn-block mt-2'>
+          Sign in
+        </Button>
+      </Form>
+      
+      </div>
+      </div>
+
+
+      {/* initial form code */}
+{/* <div className="row d-flex pt-4">
 <div className="col-md-4 mx-auto">
 
       <form className="justify-content-center">
@@ -30,9 +115,9 @@ function Login() {
         <button type="submit" className="btn btn-dark btn-lg btn-block mt-2">Sign in</button>
 
       </form>
-      </div>
+      </div> */}
 
-<div className="col-md-4 mx-auto">
+{/* <div className="col-md-4 mx-auto">
       <form>
         <h3>Sign Up</h3>
 
@@ -54,8 +139,8 @@ function Login() {
         <button type="submit" className="mt-2 btn btn-dark btn-lg btn-block">Register</button>
 
       </form>
-      </div>
-      </div>
+      </div> */}
+      {/* </div> */}
     </>
   );
 }
