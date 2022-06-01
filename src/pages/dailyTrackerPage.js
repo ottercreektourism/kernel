@@ -8,8 +8,8 @@ import Header from '../components/Header';
 function DailyTracker() {
   return (
     //   <row className='sideBySideDT'>
-    //         <Header />
-    //         <DailyTrackerForm />
+    //         <HeaderDT />
+    //         <DailyTracker />
     //         <TodaysActivitiesDT />
     //     </row>
     <div className="grid">

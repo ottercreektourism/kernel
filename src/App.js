@@ -10,6 +10,7 @@ import GridPage from './pages/gridPage';
 import IndividualDay from './pages/individualDay';
 import Resources from './pages/resources';
 import WordsOfEncouragement from './pages/wordsOfEncouragement';
+import DailyTrackerFormDT from "./components/DailyTracker";
 // import DailyTrackerForm from './components/DailyTracker';
 // import ReactDOM from 'react-dom'
 // import { library } from '@fortawesome/fontawesome-svg-core'
