@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Collection = require("./Collection");
 
 const { Schema } = mongoose;
 // add bcrypt to pkg.json
@@ -21,6 +22,7 @@ const userSchema = new Schema({
     minlength: 5,
   },
   collection: [Collection.schema],
+  habits: [String],
 });
 
 userSchema.pre("save", async function (next) {
