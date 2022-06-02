@@ -1,82 +1,84 @@
-import React from 'react';
+import { listen } from "dom-helpers";
+import React from "react";
 
-
-// TodaysActivitiesDT variable will hold the object that all additional functions are in.
-const Grid = ({
-  grid,
-  handleGridSize,
-  inputCells,
-  setCells,
-  inputRows,
-  setRows,
-}) => {
-    // Always return entire arrays with index 0 of both cells and rows arrays.
+// Grid variable will hold the object that all additional functions are in.
+const Grid = ({ grid, handleCellCount, addActivity }) => {
+  // Always return entire arrays with index 0 of both columns and rows arrays.
   const cells = new Array(grid.cells).fill(0);
   const rows = new Array(grid.rows).fill(0);
+//   const activitiesList = [
+//     {
+//         id: '1',
+//         activity: "caffeine",
+//     },
+//     {
+//         id: '2',
+//         activity: "Ate late",
+//     },
+//     {
+//         id: '3',
+//         activity: "Alcohol",
+//     },
+//     {
+//         id: '4',
+//         activity: "Smoking",
+//     },
+//     {
+//         id: '5',
+//         activity: "Pain",
+//     },
+//     {
+//         id: '6',
+//         activity: 'Exercise',
+//     },
+//     {
+//         id: '7',
+//         activity: 'Stress',
+//     },
+//     {
+//         id: '8',
+//         activity: 'Sick',
+//     },
+//   ];
+
+//   const Activities = () => {
+//       return (
+//         <ul>
+//             {activitiesList.map((activitiesList) =>(
+//                 <li key={item.id}>{item.activity}</li>
+//             ))}
+//         </ul>
+//       )
+//   }
 
   const handleClick = (e) => {
     const item = e.target;
     // toggles whether the square is selected
-    if (item.classList.contains('selected')) {
-      item.classList.remove('selected');
+    if (item.classList.contains("selected")) {
+      item.classList.remove("selected");
     } else {
-      item.classList.add('selected');
+      item.classList.add("selected");
     }
   };
 
   return (
     <main>
-        {/* rows array uses map method to create a new array  */}
-        {/* Rows are the list and calls are the list items */}
       {rows.map((row, index) => (
-        //   can use index as a key for items in the list because the order should not change.
-        <ul className="row" key={index}>
-            {/* Cells array uses map method to create a new array */}
-          {cells.map((cell, index) => (
-            <li key={index} className="item" onClick={handleClick} />
-          ))}
-        </ul>
+        <ul className="row" key={index}></ul>
       ))}
 
-      <div>
-          {/* TODO: just add one list item for every new activity selected */}
-        {/* <label htmlFor="cells">Define cells in the row</label>
-        <input
-          type="text"
-          placeholder="Define cells in the row"
-          id="cells" */}
-        {/* //   TODO: change the amount of rows when the number of total cells increases
-        //   TODO: make this correspond to total cells, not cells in the row.
-        //   TODO: Make there be always 5 cells per row */}
-          value={inputCells}
-          onChange={(e) => setCells(e.target.value)}
-        {/* /> */}
-      </div>
+      {/* can use index as a key for items in the list because the order should not change. */}
+      {cells.map((column, index) => (
+        <li key={index} className="item" onClick={handleClick} />
+      ))}
 
-      <div>
-        {/* <label htmlFor="rows">Define rows</label>
-        <input
-          type="text"
-          placeholder="Define rows"
-          id="rows" */}
-        {/* // TODO: start with 2 rows (10 cells)
-        // TODO: if 11-15, make 3 rows. if 16-20, make 4 rows. if 21-25, make 5 rows. */}
-          value={inputRows}
-          onChange={(e) => setRows(e.target.value)}
-        {/* /> */}
-      </div>
-            {/* TODO: onClick should correspond to clicking 'add activity'*/}
-      <button onClick={handleGridSize}>Add activity</button>
+      {/* TODO: change the amount of rows when the number of total cells increases (CSS)*/}
+      {/* TODO: just add one list item for every new activity selected */}
+
+      <button onClick={handleCellCount}>Add activity</button>
+      <button onClick={addActivity}>Done</button>
     </main>
   );
 };
-
-// function Grid() {
-//     return(
-//         <div>
-//             <p>huge clickable image here</p>
-//         </div>
-//     )
-// }
 
 export default Grid;

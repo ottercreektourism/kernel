@@ -42,21 +42,21 @@
   padding: 10px;
 } */
 
-.row {
+/* .row {
   display: flex;
-}
-.column-left {
+} */
+/* .column-left {
   width: 75%;
-}
+} */
 
-.column-right {
+/* .column-right {
   display: flex;
   float: right;
   width: 10%;
   flex-wrap: wrap;
   align-self: flex-end;
 
-}
+} */
 
 .row1 {
   width: 100;
@@ -71,15 +71,38 @@
 
 .grid {
   /* Makes the whole thing scrollable */
-  height: 150vw;
+  height: 100%;
   /* adjust width to % to make the whole screen skinnier including title*/
-  width: 100vw;
+  width: 80vw;
   display: flex;
   flex-direction: column;
   overflow: visible;
   color: #000000;
   font-size: 13px;
   line-height: 1;
+}
+
+.dt {
+  /* display: inline-block; */
+  border: 1px solid red;
+  padding: 1rem 1rem;
+  /* vertical-align: middle; */
+  /* flex: 1; */
+  float: none;
+}
+
+.activities {
+  background-color: paleturquoise;
+  width: 34%;
+  /* float: none; */
+}
+
+.dailytrackerform {
+  background-color: palevioletred;
+  /* display: inline-block; */
+  /* vertical-align: middle; */
+  width: 66%;
+  /* float: none; */
 }
 
 button {
@@ -97,11 +120,13 @@ button {
   transition: 0.3s ease;
   display: flex;
   justify-content: center;
+  /* border-radius: 10px; */
 }
 
 button:hover {
   background-color: black;
   color: white;
+  /* border-radius: 10px; */
 }
 
 /* input {
@@ -176,4 +201,8 @@ input {
 
 label {
   margin-right: 15px;
+}
+
+.listItems {
+  float: left;
 }
