@@ -11,6 +11,8 @@ import IndividualDay from './pages/individualDay';
 import Resources from './pages/resources';
 import WordsOfEncouragement from './pages/wordsOfEncouragement';
 import DailyTrackerFormDT from "./components/DailyTracker";
+import Activities from "./components/Activities";
+import SubmittedDT from "./components/submittedDT";
 // import DailyTrackerForm from './components/DailyTracker';
 // import ReactDOM from 'react-dom'
 // import { library } from '@fortawesome/fontawesome-svg-core'
@@ -31,6 +33,7 @@ function App() {
         <Route path='/dailytracker' element={<DailyTracker/>} />
         <Route path='/grid' element={<GridPage/>} />
         <Route path='/individualday' element={<IndividualDay/>} />
+        <Route path='/submittedDT' element={<SubmittedDT/>} />
         <Route path='/resources' element={<Resources/>} />
         <Route path='/wordsofencouragement' element={<WordsOfEncouragement/>} />
     </Routes>
