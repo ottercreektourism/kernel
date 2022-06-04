@@ -1,16 +1,18 @@
-// Grid page 
-// contains nav bar, title(header), a grid of clickable boxes (representing days)
+import "../App.css";
+import Calendar from "../components/Calendar";
 
-import React from "react";
-  
-const gridPage = () => {
+function GridPage() {
   return (
-    <div>
-      <h1>
-        Test words for the grid page.
-      </h1>
+    <div className="grid">
+      <div className="mx-auto mt-4 mb-4">
+        <h3>Welcome to your Grid</h3>{" "}
+      </div>
+      <div className="mx-auto mt-4">
+        <h5>Click on the grid squares to see your daily results.</h5>{" "}
+      </div>
+      <Calendar />
     </div>
   );
 };
-  
-export default gridPage;
+
+export default GridPage;

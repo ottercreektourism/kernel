@@ -1,16 +1,21 @@
-// Individual day (once user clicks on one grid square)
-// contains nav bar, title(header), a grid of clickable boxes (representing days)
-
 import React from "react";
-  
-const gridPage = () => {
+
+function IndividualDay() {
   return (
     <div>
-      <h1>
-        Test words for the grid page.
-      </h1>
+      <h3>Review your day.</h3>
+      <div>
+        <h5>Your journal input:</h5>
+      </div>
+      <div>
+        <h5>Your day of activities:</h5>
+      </div>
+      <div>
+        <h5>Your overall rating:</h5>
+      </div>
     </div>
   );
-};
-  
-export default gridPage;
+}
+// useeffect to query for date info
+
+export default IndividualDay;

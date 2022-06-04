@@ -1,57 +1,58 @@
 import React from "react";
 import { v4 as uuidv4 } from 'uuid';
+import 
 
 const initialList = [
   {
     id: "1",
-    activity: "Caffeine",
+    name: "Caffeine",
   },
   {
     id: "2",
-    activity: "Ate late",
+    name: "Ate late",
   },
   {
     id: "3",
-    activity: "Alcohol",
+    name: "Alcohol",
   },
   {
     id: "4",
-    activity: "Smoking",
+    name: "Smoking",
   },
   {
     id: "5",
-    activity: "Pain",
+    name: "Pain",
   },
   {
     id: "6",
-    activity: "Exercise",
+    name: "Exercise",
   },
   {
     id: "7",
-    activity: "Stress",
+    name: "Stress",
   },
   {
     id: "8",
-    activity: "Sick",
+    name: "Sick",
   },
 ];
 
 const Activities = () => {
   //   make the list stateful in order to enable user to add one list item
-  const [activitiesList, setActivitiesList] = React.useState(initialList);
-  const [activity, setActivity] = React.useState('');
+  const [namesList, setNamesList] = React.useState(initialList);
+  const [name, setName] = React.useState('');
 
   function handleChange(e) {
     // track input field's state
-    setActivity(e.target.value);
+    setName(e.target.value);
   }
 
   function handleAdd() {
     // add item
     // concat method returns a new list instead of modifying the old one
-    const newActivitiesList = activitiesList.concat({activity, id: uuidv4()});
-    setActivitiesList(newActivitiesList);
-    setActivity('');
+    const newNamesList = namesList.concat({name, id: uuidv4()});
+    setNamesList(newNamesList);
+    setName('');
   }
 
   const handleClick = (e) => {
@@ -69,14 +70,14 @@ const Activities = () => {
       <div>
         <ul>
             {/* render new list items */}
-          {activitiesList.map((item) => (
-            <li key={item.id} className="item listItems" onClick={handleClick}>{item.activity}</li>
+          {namesList.map((item) => (
+            <li key={item.id} className="item listItems" onClick={handleClick}>{item.name}</li>
           ))}
         </ul>
       </div>
       <br/>
       <div>
-        <input type="text" placeholder="Add new activity" value={activity} onChange={handleChange} />
+        <input type="text" placeholder="Add new" value={name} onChange={handleChange} />
       </div>
       <div>
         <button type="button" onClick={handleAdd}>Add</button>

@@ -14,7 +14,8 @@
     "express": "^4.17.2",
     "graphql": "^16.5.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.3.5"
+    "mongoose": "^6.3.5",
+    "nodemon": "^2.0.16"
   },
   "repository": {
     "type": "git",
