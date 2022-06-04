@@ -48,6 +48,7 @@ const typeDefs = gql`
     kernelCollection(_id: ID!): [KernelCollection]
     kernel(_id: ID!): Kernel
     user: User
+    habits: [Habits]
   }
 
   type Mutation {
