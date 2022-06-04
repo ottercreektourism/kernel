@@ -82,26 +82,26 @@
   line-height: 1;
 }
 
-.dt {
-  /* display: inline-block; */
+/* .dt {
+  display: inline-block;
   border: 1px solid red;
   padding: 1rem 1rem;
-  /* vertical-align: middle; */
-  /* flex: 1; */
+  vertical-align: middle;
+  flex: 1;
   float: none;
-}
+} */
 
 .activities {
-  background-color: paleturquoise;
-  width: 34%;
+  /* background-color: paleturquoise; */
+  width: 30%;
   /* float: none; */
 }
 
 .dailytrackerform {
-  background-color: palevioletred;
+  /* background-color: palevioletred; */
   /* display: inline-block; */
   /* vertical-align: middle; */
-  width: 66%;
+  width: 70%;
   /* float: none; */
 }
 

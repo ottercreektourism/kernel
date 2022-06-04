@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
 import "../App.css";
-import Activities from "../components/Activities";
 import Calendar from "../components/Calendar";
 
 function GridPage() {
