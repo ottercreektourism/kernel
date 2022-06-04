@@ -19,8 +19,6 @@ import SubmittedDT from "./components/submittedDT";
 // import { fab } from '@fortawesome/free-brands-svg-icons'
 // import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-// library.add(fab, faCheckSquare, faCoffee)
-
 
 function App() {
   return (
