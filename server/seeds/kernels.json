@@ -3,8 +3,6 @@
     "proud": "went grocery shopping",
     "excite": "went to the beach",
     "intention": "go to the movies",
-    "habits": {
-        // fill in once habits created
-    },
+    "habits": [],
     "dayRating": "7"
 }

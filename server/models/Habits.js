@@ -8,10 +8,6 @@ const habitsSchema = new Schema({
     trim: true,
     required: true,
   },
-  icon: {
-    type: String,
-    required: true,
-  },
 });
 
 const Habits = mongoose.model("Habits", habitsSchema);

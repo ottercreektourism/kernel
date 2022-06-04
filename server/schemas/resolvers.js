@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Habits, Kernel, Collection } = require("../models");
+const { User, Habits, Kernel, KernelCollection } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -16,7 +16,7 @@ const resolvers = {
       // unsure about this one
       console.log(context);
       if (context.user) {
-        const newKernel = new Collection({ kernel });
+        const newKernel = new KernelCollection({ kernel });
 
         await User.findByIdAndUpdate(context.user.id, {
           $push: { collections: newKernel },

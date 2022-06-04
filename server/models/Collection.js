@@ -11,8 +11,8 @@ const collectionSchema = new Schema({
   ],
 });
 
-const Collection = mongoose.model("Collection", collectionSchema);
+const KernelCollection = mongoose.model("KernelCollection", collectionSchema);
 
-module.exports = Collection;
+module.exports = KernelCollection;
 
 // holds all submitted Kernels (shopping cart)
