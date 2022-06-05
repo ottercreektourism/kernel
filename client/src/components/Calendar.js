@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
+// import { KernelCollection } from '../../../';
 
 
 const Calendar = () => {
@@ -12,7 +13,7 @@ const Calendar = () => {
 
     return (
         <div>
-            <Button type="button" as={Link} to="/individualday">1</Button>
+            {/* <Button type="button" key={KernelCollection.id} as={Link} to="/individualday">1</Button> */}
             <Button type="button" onClick={handleClick} as={Link} to="/individualday">2</Button>
             <Button type="button" onClick={handleClick} as={Link} to="/individualday">3</Button>
             <Button type="button" onClick={handleClick} as={Link} to="/individualday">4</Button>
