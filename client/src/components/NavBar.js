@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import Auth from '../utils/auth';
 
 function NavBar() {
   return (
@@ -10,7 +11,9 @@ function NavBar() {
           <Navbar.Brand as={Link} to="/">
             kernel
           </Navbar.Brand>
+          {Auth.loggedIn() ? (
           <Nav>
+
             <Nav.Link as={Link} to="/dailytracker">
               Daily Tracker
             </Nav.Link>
@@ -23,10 +26,12 @@ function NavBar() {
             <Nav.Link as={Link} to="/wordsofencouragement">
               Kernels of Encouragement
             </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link eventKey={2} onClick={Auth.logout}>
               Logout
             </Nav.Link>
           </Nav>
+          ): <Nav.Link>Login/Sign Up</Nav.Link>
+          }
         </Container>
       </Navbar>
       <br />

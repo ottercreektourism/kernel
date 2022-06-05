@@ -11,8 +11,8 @@ function LoginForm() {
     // const [loginUser] = useMutation(LOGIN_USER);
 
     const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setUserFormData({ ...userFormData, [name]: value });
+        const { firstName, value } = event.target;
+        setUserFormData({ ...userFormData, [firstName]: value });
     };
 
     const handleFormSubmit = async (event) => {
@@ -37,7 +37,7 @@ function LoginForm() {
         // }
 
         setUserFormData({
-            name: '',
+            firstName: '',
             email: '',
             password: '',
         });
