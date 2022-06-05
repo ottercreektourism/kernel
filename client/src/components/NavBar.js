@@ -10,7 +10,9 @@ function NavBar() {
           <Navbar.Brand as={Link} to="/">
             kernel
           </Navbar.Brand>
+          {Auth.loggedIn() ? (
           <Nav>
+
             <Nav.Link as={Link} to="/dailytracker">
               Daily Tracker
             </Nav.Link>
@@ -27,6 +29,8 @@ function NavBar() {
               Logout
             </Nav.Link>
           </Nav>
+          ): <Nav.Link>Login/Sign Up</Nav.Link>
+          }
         </Container>
       </Navbar>
       <br />
