@@ -3,8 +3,43 @@ const { User, Habits, Kernel, KernelCollection } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
-  Query: {},
+  Query: {
+    kernels: async (parent, { submissionDate, dayRating }) => {
+      const params = {};
 
+      if (submissionDate) {
+        params.submissionDate = submissionDate;
+      }
+
+      if (dayRating) {
+        params.dayRating = dayRating;
+      }
+
+      return Kernel.find(params).populate("dayRating");
+    },
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: "collection",
+          populate: "kernel",
+        });
+
+        return user;
+      }
+      throw new AuthenticationError("not logged in");
+    },
+    kernelCollection: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: "collection",
+          populate: "kernel",
+        });
+
+        return user.order.id(_id);
+      }
+      throw new AuthenticationError("not logged in");
+    },
+  },
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
@@ -48,10 +83,10 @@ const resolvers = {
       if (!isValidPassword) {
         throw new AuthenticationError("Invalid credentials!");
       }
-
       const token = signToken(user);
-
       return { token, user };
     },
   },
 };
+
+module.exports = resolvers;
