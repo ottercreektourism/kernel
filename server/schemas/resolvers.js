@@ -4,6 +4,9 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    me: async (parent, args, context) => {
+      console.log(context.user);
+    },
     kernels: async (parent, { submissionDate, dayRating }) => {
       const params = {};
 
@@ -19,15 +22,27 @@ const resolvers = {
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: "collection",
-          populate: "kernel",
-        });
-
-        return user;
+        const userData = await User.findOne({
+          _id: context.user._id,
+        })
+          .select("-__v -password")
+          .populate("kernelCollection");
+        return userData;
       }
-      throw new AuthenticationError("not logged in");
+      throw new AuthenticationError("You must be logged in");
     },
+
+    // user: async (parent, args, context) => {
+    //   if (context.user) {
+    //     const user = await User.findById(context.user._id).populate({
+    //       path: "collection",
+    //       populate: "kernel",
+    //     });
+
+    //     return user;
+    //   }
+    //   throw new AuthenticationError("not logged in");
+    // },
     kernelCollection: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
