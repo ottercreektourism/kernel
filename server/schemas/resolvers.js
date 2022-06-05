@@ -3,7 +3,20 @@ const { User, Habits, Kernel, KernelCollection } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
-  Query: {},
+  Query: {
+    me: async (parent, args, context) => {
+      console.log(context.user);
+      if (context.user) {
+          const userData = await User.findOne({
+              _id: context.user._id
+          })
+              .select('-__v -password')
+              .populate('kernelCollection');
+          return userData;
+      }
+      throw new AuthenticationError('You must be logged in')
+  },
+  },
 
   Mutation: {
     addUser: async (parent, args) => {
