@@ -7,7 +7,7 @@ function KernelsOfEncouragement() {
   // function to register that a kernel was submitted so it can be put into the array.
   // TODO: make sure the kernel doesnt get sent back to original user
   const submitKernel = () => {
-    fetch("/", {
+    fetch("/TODO", {
       method: "POST",
       body: newKernel,
     });
