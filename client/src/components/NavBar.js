@@ -25,7 +25,7 @@ function NavBar() {
             <Nav.Link as={Link} to="/wordsofencouragement">
               Kernels of Encouragement
             </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link eventKey={2} onClick={Auth.logout}>
               Logout
             </Nav.Link>
           </Nav>
