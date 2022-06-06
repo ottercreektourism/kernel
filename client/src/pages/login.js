@@ -1,6 +1,7 @@
 // import React, { useState } from 'react';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
+import Auth from '../utils/auth';
 
 function Login() {
 
@@ -12,8 +13,9 @@ function Login() {
       </div>
       <div><p className=" mx-auto d-flex justify-content-center">trackin the kernels</p>
       </div>
-
-      <div className="row d-flex pt-4">
+      {Auth.loggedIn() ? (
+        <h1>track your moodz</h1>
+      ) : <div className="row d-flex pt-4">
         <div className="col-md-4 mx-auto">
           <LoginForm />
 
@@ -22,6 +24,8 @@ function Login() {
           <SignupForm />
         </div>
       </div>
+      }
+
 
       {/* initial form code */}
       {/* <div className="row d-flex pt-4">
