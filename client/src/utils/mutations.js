@@ -24,3 +24,14 @@ export const LOGIN_USER = gql`
       }
   }
 `;
+
+export const ADD_KERNEL = gql`
+  mutation addKernel($proud: String!, $excite: String!, $intention: String!) {
+      addKernel(proud: $proud, excite: $excite, intention: $intention) {
+          token
+          user {
+              _id
+          }
+      }
+  }
+`;
