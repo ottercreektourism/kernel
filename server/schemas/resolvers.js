@@ -4,21 +4,17 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    me: async (parent, args, context) => {
-      console.log(context.user);
-    },
-    kernels: async (parent, { submissionDate, dayRating }) => {
-      const params = {};
-
-      if (submissionDate) {
-        params.submissionDate = submissionDate;
-      }
-
-      if (dayRating) {
-        params.dayRating = dayRating;
-      }
-
-      return Kernel.find(params).populate("dayRating");
+      me: async (parent, args, context) => {
+        console.log(context.user);
+        if (context.user) {
+            const userData = await User.findOne({
+                _id: context.user._id
+            })
+                .select('-__v -password')
+                .populate('kernelCollection');
+            return userData;
+        }
+        throw new AuthenticationError('You must be logged in')
     },
     user: async (parent, args, context) => {
       if (context.user) {
@@ -77,15 +73,15 @@ const resolvers = {
 
       throw new AuthenticationError("You must be logged in to do that!");
     },
-    updateUser: async (parent, args, context) => {
-      if (context.user) {
-        return await User.findByIdAndUpdate(context.user.id, args, {
-          new: true,
-        });
-      }
+    // updateUser: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return await User.findByIdAndUpdate(context.user.id, args, {
+    //       new: true,
+    //     });
+    //   }
 
-      throw new AuthenticationError("You must be logged in to do that!");
-    },
+    //   throw new AuthenticationError("You must be logged in to do that!");
+    // },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

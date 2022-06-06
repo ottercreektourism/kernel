@@ -1,7 +1,7 @@
 import React from "react";
 // import { searchYoutube } from '../utils/API';
-const axios = require('axios');
-
+// const axios = require('axios');
+// const key = process.env.API_KEY
 const resourceInfo = [
   {
     name: "Mindful",
@@ -29,10 +29,25 @@ const resourceInfo = [
 function Resources() {
 
   // axios
-  //   .get('https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=meditation&key=AIzaSyB8HWYbj4bs0Nc2BmA3IihS80y324jtR5g')
+  //   .get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=meditation&key=AIzaSyB8HWYbj4bs0Nc2BmA3IihS80y324jtR5g`)
   //   .then(res => {
-  //     // console.log(`statusCode: ${res.status}`);
-  //     console.log(res.data.items);
+          
+          // const title = res.data.items[0].snippet.title;
+          // const description = res.data.items[0].snippet.description;
+          // const thumbnail = res.data.items[0].snippet.thumbnails.default;
+          // const videoId = res.data.items[0].id.videoId;
+
+          // for(let i = 0; i < res.length; i++) {
+          //   return 
+          // }
+          // aaaaaaaaaaaahh!
+  //     // console.log(res.data.items[0].snippet.title);
+  //     // console.log(res.data.items[0].snippet.description);
+  //     // console.log(res.data.items[0].snippet.thumbnails.default);
+  //     // console.log(res.data.items[0].id.videoId);
+
+
+
   //   })
   //   .catch(error => {
   //     console.error(error);

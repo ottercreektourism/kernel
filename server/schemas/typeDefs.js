@@ -51,6 +51,10 @@ const typeDefs = gql`
     habits: [Habits]
   }
 
+  type Query {
+    me: User
+  } 
+  
   type Mutation {
     addUser(firstName: String!, email: String!, password: String!): Auth
     addKernel(kernel: KernelInput!): Kernel
