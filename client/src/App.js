@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from './components/NavBar';
-// import Login from './pages/login'
+import Login from './pages/login'
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,16 +20,38 @@ import Modal from "./components/Modal";
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fab } from '@fortawesome/free-brands-svg-icons'
 // import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
+import { setContext } from '@apollo/client/link/context';
+
+const httpLink = createHttpLink({
+  uri: "/graphql"
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : ''
+    }
+  }
+});
+// set new apolloClient
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+})
 
 function App() {
   return (
+    <ApolloProvider client={client}>
 
     <Router>
       <NavBar />
       <div className="container">
     <Routes>
-        <Route exact path='/' element={<DailyTracker />} />
+        <Route exact path='/' element={<Login />} />
         <Route path='/dailytracker' element={<DailyTracker/>} />
         <Route path='/grid' element={<GridPage/>} />
         <Route path='/individualday' element={<IndividualDay/>} />
@@ -40,6 +62,8 @@ function App() {
     </Routes>
     </div>
     </Router>
+    </ApolloProvider>
+
 
   );
 }

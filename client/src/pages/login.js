@@ -1,45 +1,10 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
+import Auth from '../utils/auth';
 
 function Login() {
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  // const [loginUser] = useMutation(LOGIN_USER);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
-  };
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    // check if form has everything
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    // try {
-    //   const { data } = await loginUser({
-    //     variables: { ...userFormData }
-    //   });
-    //   console.log(data)
-    //   Auth.login(data.login.token);
-    // } catch (err) {
-    //   console.error(err);
-    //   setShowAlert(true);
-    // }
-
-    setUserFormData({
-      name: '',
-      email: '',
-      password: '',
-    });
-  };
 
   return (
 
@@ -48,8 +13,9 @@ function Login() {
       </div>
       <div><p className=" mx-auto d-flex justify-content-center">trackin the kernels</p>
       </div>
-
-      <div className="row d-flex pt-4">
+      {Auth.loggedIn() ? (
+        <h1>track your moodz</h1>
+      ) : <div className="row d-flex pt-4">
         <div className="col-md-4 mx-auto">
           <LoginForm />
 
@@ -58,6 +24,8 @@ function Login() {
           <SignupForm />
         </div>
       </div>
+      }
+
 
       {/* initial form code */}
       {/* <div className="row d-flex pt-4">

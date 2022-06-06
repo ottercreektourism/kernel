@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const KernelCollection = require("./Collection");
+const bcrypt = require('bcrypt');
+
 
 const { Schema } = mongoose;
-// add bcrypt to pkg.json
-const brcrypt = require("bcrypt");
 
 const userSchema = new Schema({
   firstName: {

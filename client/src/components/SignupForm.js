@@ -7,7 +7,7 @@ import { ADD_USER } from '../utils/mutations';
 
 const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ name: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ firstName: '', email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
   // set state for form validation
   const [validated] = useState(false);
@@ -41,7 +41,7 @@ const SignupForm = () => {
       }
 
     setUserFormData({
-      name: '',
+      firstName: '',
       email: '',
       password: '',
     });
@@ -63,9 +63,9 @@ const SignupForm = () => {
           <Form.Control
             type='text'
             placeholder='Enter your name'
-            name='name'
+            name='firstName'
             onChange={handleInputChange}
-            value={userFormData.name}
+            value={userFormData.firstName}
             required
           />
           <Form.Control.Feedback type='invalid'>Name is required!</Form.Control.Feedback>
@@ -97,7 +97,7 @@ const SignupForm = () => {
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
         <Button
-          disabled={!(userFormData.name && userFormData.email && userFormData.password)}
+          disabled={!(userFormData.firstName && userFormData.email && userFormData.password)}
           type='submit'
           variant='btn btn-dark btn-lg btn-block mt-2'>
           Submit
