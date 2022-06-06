@@ -6,6 +6,8 @@ export const GET_ME = gql`
         _id
         firstName
         email
-        kernelCollection
+        kernelCollection {
+            
+        }
     }
 }`;

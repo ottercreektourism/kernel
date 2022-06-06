@@ -16,17 +16,17 @@ const resolvers = {
         }
         throw new AuthenticationError('You must be logged in')
     },
-    user: async (parent, args, context) => {
-      if (context.user) {
-        const userData = await User.findOne({
-          _id: context.user._id,
-        })
-          .select("-__v -password")
-          .populate("kernelCollection");
-        return userData;
-      }
-      throw new AuthenticationError("You must be logged in");
-    },
+    // user: async (parent, args, context) => {
+    //   if (context.user) {
+    //     const userData = await User.findOne({
+    //       _id: context.user._id,
+    //     })
+    //       .select("-__v -password")
+    //       .populate("kernelCollection");
+    //     return userData;
+    //   }
+    //   throw new AuthenticationError("You must be logged in");
+    // },
 
     // user: async (parent, args, context) => {
     //   if (context.user) {
