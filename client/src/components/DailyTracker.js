@@ -9,6 +9,8 @@ import { ADD_KERNEL } from '../utils/mutations';
 const FormSubmission = () => {
       const [userFormData, setUserFormData] = useState({ proud: '', excite: '', intention: ''});
       const [addKernel] = useMutation(ADD_KERNEL);
+      const [validated] = useState(false);
+      const [showAlert, setShowAlert] = useState(false);
 
       const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -19,20 +21,22 @@ const FormSubmission = () => {
         event.preventDefault();
     
         // check if form has everything (as per react-bootstrap docs)
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
+        if (
+                !userFormData.proud ||
+                !userFormData.excite ||
+                !userFormData.intention
+              ) {
+                alert('Enter input in all categories before submitting');
         }
     
           try {
             const { data } = await addKernel({
               variables: {...userFormData}
             })
-            console.log(data);
+            console.log(`data: ` + data);
           } catch (err) {
             console.error(err);
-            // setShowAlert(true);
+            setShowAlert(true);
           }
     
         setUserFormData({
@@ -76,31 +80,6 @@ const FormSubmission = () => {
       
 //       this.setState(() => ({ error: "" }, { isSubmitted: true }));
 
-
-
-      // submit post req using mutations - new kernel
-      // const [userFormData, setUserFormData] = useState({ proud: '', excite: '', intention: ''});
-      // const [addKernel] = useMutation(ADD_KERNEL);
-
-      // try {
-        //   const { data } = await addKernel({
-        //     variables: {...userFormData}
-        //   })
-        //   console.log(data);
-        //   Auth.login(data.addUser.token);
-        // } catch (err) {
-        //   console.error(err);
-        //   setShowAlert(true);
-        // }
-        // setUserFormData({
-        //   proud: '',
-        //   excite: '',
-        //   intention: '',
-        // });
-  
-  //   }
-  // }
-
   // handleProudChange(e) {
   //   const proudInput = e.target.value;
   //   this.setState({ proudInput });
@@ -117,10 +96,10 @@ const FormSubmission = () => {
 
     return (
       <>
-        <Form onSubmit={handleFormSubmit}>
+        <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
           <div className="d-inline p-2">
             <div className="form-group col-md-8">
-              <label htmlFor="exampleFormControlTextarea1"></label>
+              <label htmlFor="proudInput"></label>
               {/* <Form.Group>
           <Form.Label htmlFor='proud'>Name</Form.Label>
           <Form.Control
@@ -144,9 +123,10 @@ const FormSubmission = () => {
                 onChange={handleInputChange}
 
               ></textarea>
+                        <Form.Control.Feedback type='invalid'>Name is required!</Form.Control.Feedback>
             </div>
             <div className="form-group col-md-8">
-              <label htmlFor="exampleFormControlTextarea1"></label>
+              <label htmlFor="exciteInput"></label>
               <textarea
                 name="excite"
                 placeholder="What excites you most about the coming week?"
@@ -159,9 +139,9 @@ const FormSubmission = () => {
               ></textarea>
             </div>
             <div className="form-group col-md-8">
-              <label htmlFor="exampleFormControlTextarea1"></label>
+              <label htmlFor="intentionInput"></label>
               <textarea
-                name="intentionInput"
+                name="intention"
                 placeholder="Set your intention for tomorrow"
                 className="form-control"
                 id="exampleFormControlTextarea1"
