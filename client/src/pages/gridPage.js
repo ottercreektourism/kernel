@@ -1,10 +1,14 @@
 import "../App.css";
 import Calendar from "../components/Calendar";
 import css from './gridPage.css'
+
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 import React, { useState } from 'react';
 import { Button, Fade } from 'react-bootstrap';
+
+import DayRating from '../components/Dropdown';
+
 
 function GridPage() {
   // const [showModal, setShowModal] = useState(false);
@@ -45,6 +49,7 @@ console.log(new Date(meow * 1000))
       <div className="mx-auto mt-4">
         <h5>Click on the grid squares to see your daily results.</h5>{" "}
       </div>
+
       <div className="d-flex">
         {userData.savedKernels.map((info) => {
             return (
@@ -66,7 +71,6 @@ console.log(new Date(meow * 1000))
             );
           })}
           </div>
-
 
 
       <Calendar

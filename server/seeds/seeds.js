@@ -3,7 +3,7 @@ const { User, Habits, Kernel, KernelCollection } = require("../models");
 const users = require("../seeds/users");
 // const habits = require("../seeds/habits");
 const kernels = require("../seeds/kernels");
-// const collections = require("../seeds/collections");
+const collections = require("../seeds/collections");
 
 db.once("open", async () => {
   await User.deleteMany();
@@ -11,16 +11,41 @@ db.once("open", async () => {
   console.log("users seeded");
 
   await Habits.deleteMany();
-  await Habits.insertMany(habits);
+  await Habits.insertMany([
+    {
+      name: "Caffeine",
+    },
+    {
+      name: "Ate late",
+    },
+    {
+      name: "Alcohol",
+    },
+    {
+      name: "Smoking",
+    },
+    {
+      name: "Pain",
+    },
+    {
+      name: "Exercise",
+    },
+    {
+      name: "Stress",
+    },
+    {
+      name: "Sick",
+    },
+  ]);
   console.log("habits seeded");
 
   await Kernel.deleteMany();
   await Kernel.insertMany([kernels]);
   console.log("kernels seeded");
 
-  // await KernelCollection.deleteMany();
-  // await KernelCollection.insertMany([collections]);
-  // console.log("collections seeded");
+  await KernelCollection.deleteMany();
+  await KernelCollection.insertMany([collections]);
+  console.log("collections seeded");
 
   // ANDREW TO DO continue for all models
   //   ANDREW TODO - add seed data for all models

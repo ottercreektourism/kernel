@@ -2,19 +2,63 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { useMutation } from '@apollo/client';
-import { ADD_KERNEL } from '../utils/mutations';
+
+import DayRating from "../components/Dropdown";
+
+import { useMutation } from "@apollo/client";
+import { ADD_KERNEL } from "../utils/mutations";
 import Activities from "./Activities";
 
 const FormSubmission = () => {
-      const [userFormData, setUserFormData] = useState({ proud: '', excite: '', intention: ''});
-      const [addKernel] = useMutation(ADD_KERNEL);
-      const [validated] = useState(false);
-      const [showAlert, setShowAlert] = useState(false);
-      const [checkedHabits, setCheckedHabits] = useState([]);
-      const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setUserFormData({ ...userFormData, [name]: value });
+  const [userFormData, setUserFormData] = useState({
+    proud: "",
+    excite: "",
+    intention: "",
+  });
+  const [addKernel] = useMutation(ADD_KERNEL);
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [checkedHabits, setCheckedHabits] = useState([]);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // check if form has everything (as per react-bootstrap docs)
+    if (
+      !userFormData.proud ||
+      !userFormData.excite ||
+      !userFormData.intention
+    ) {
+      alert("Enter input in all categories before submitting");
+    }
+
+    try {
+      console.log({ input: { ...userFormData, habits: checkedHabits, dayRating: parseInt(rating) } });
+      const { data } = await addKernel({
+        variables: { input: { ...userFormData, habits: checkedHabits, dayRating: parseInt(rating) } },
+      });
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
+
+    setUserFormData({
+      proud: "",
+      excite: "",
+      intention: "",
+    });
+  };
+
+  const [rating, setRating] = useState("");
+  const handleSelect = (e) => {
+    console.log(e);
+    setRating(e);
+  };
+
 
       };
       const handleFormSubmit = async (event) => {
@@ -30,9 +74,9 @@ const FormSubmission = () => {
         }
     
           try {
-            console.log({input: {...userFormData, habits: checkedHabits}})
+            console.log({input: {...userFormData, habits: checkedHabits, dayRating: parseInt(rating)}})
             const { data } = await addKernel({
-              variables: {input: {...userFormData, habits: checkedHabits}}
+              variables: {input: {...userFormData, habits: checkedHabits, dayRating: parseInt(rating)}}
             })
             console.log(data);
           } catch (err) {
@@ -96,11 +140,15 @@ const FormSubmission = () => {
               ></textarea>
             </div>
           </div>
+              <div>
+                <DayRating rating={rating} handleSelect={handleSelect}/>
+              </div>
           <div>
             <Button className="btn-dark" type="button" as={Link} to="/submittedDT" onClick={handleFormSubmit}>submit</Button>
+              </div>
+            </Form>
+
           </div>
-        </Form>
-        </div>
         </div>
         <div className="row dt activities ms-auto mt-4 col-4">
           <h6>
@@ -108,12 +156,15 @@ const FormSubmission = () => {
             today.
           </h6>
           <div className="column-right activities">
-            <Activities checkedHabits={checkedHabits} setCheckedHabits={setCheckedHabits}/>
+            <Activities
+              checkedHabits={checkedHabits}
+              setCheckedHabits={setCheckedHabits}
+            />
           </div>
         </div>
       </div>
-      </>
-    );
-  }
+    </>
+  );
+};
 
 export default FormSubmission;
