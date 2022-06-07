@@ -192,6 +192,7 @@ h1 {
   background-color: rgb(94, 93, 196);
   margin: 10px;
   border-radius: 10px;
+  color:lavender;
 }
 
 .listItems {
@@ -216,11 +217,4 @@ label {
 
 .listItems {
   float: left;
-}
-
-
-#dropdown{
-  color: white;
-  font-weight: bold;
-  background-color: red;
 }
