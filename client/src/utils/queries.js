@@ -6,6 +6,12 @@ export const GET_ME = gql`
         _id
         firstName
         email
-        savedKernels
+        savedKernels{
+            submissionDate
+            proud
+            excite
+            intention
+            dayRating
+        }
     }
 }`;
