@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+
+import DayRating from '../components/Dropdown';
+
 import { useMutation } from '@apollo/client';
 import { ADD_KERNEL } from '../utils/mutations';
 import Activities from "./Activities";
+
 
 const FormSubmission = () => {
       const [userFormData, setUserFormData] = useState({ proud: '', excite: '', intention: ''});
@@ -155,6 +159,9 @@ const FormSubmission = () => {
 
               ></textarea>
             </div>
+          </div>
+          <div>
+            <DayRating />
           </div>
           <div>
             <Button type="button" as={Link} to="/submittedDT" onClick={handleFormSubmit}>submit</Button>
