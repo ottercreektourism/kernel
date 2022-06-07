@@ -4,14 +4,14 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import { ADD_KERNEL } from '../utils/mutations';
-
+import Activities from "./Activities";
 
 const FormSubmission = () => {
       const [userFormData, setUserFormData] = useState({ proud: '', excite: '', intention: ''});
       const [addKernel] = useMutation(ADD_KERNEL);
       const [validated] = useState(false);
       const [showAlert, setShowAlert] = useState(false);
-
+      const [checkedHabits, setCheckedHabits] = useState([]);
       const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
@@ -30,10 +30,11 @@ const FormSubmission = () => {
         }
     
           try {
+            console.log({input: {...userFormData, habits: checkedHabits}})
             const { data } = await addKernel({
-              variables: {...userFormData}
+              variables: {input: {...userFormData, habits: checkedHabits}}
             })
-            console.log(`data: ` + data);
+            console.log(data);
           } catch (err) {
             console.error(err);
             setShowAlert(true);
@@ -96,6 +97,9 @@ const FormSubmission = () => {
 
     return (
       <>
+            <div className="row">
+        <div className="row dt dailytrackerform col-8">
+          <div className="column-left dailytrackerform">
         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
           <div className="d-inline p-2">
             <div className="form-group col-md-8">
@@ -156,6 +160,18 @@ const FormSubmission = () => {
             <Button type="button" as={Link} to="/submittedDT" onClick={handleFormSubmit}>submit</Button>
           </div>
         </Form>
+        </div>
+        </div>
+        <div className="row dt activities ms-auto mt-4 col-4">
+          <h6>
+            Click on the grid squares to indicate which activities you've done
+            today.
+          </h6>
+          <div className="column-right activities">
+            <Activities checkedHabits={checkedHabits} setCheckedHabits={setCheckedHabits}/>
+          </div>
+        </div>
+      </div>
       </>
     );
   }

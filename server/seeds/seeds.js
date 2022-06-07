@@ -1,7 +1,7 @@
 const db = require("../config/connection");
 const { User, Habits, Kernel, KernelCollection } = require("../models");
 const users = require("../seeds/users");
-const habits = require("../seeds/habits");
+// const habits = require("../seeds/habits");
 const kernels = require("../seeds/kernels");
 // const collections = require("../seeds/collections");
 

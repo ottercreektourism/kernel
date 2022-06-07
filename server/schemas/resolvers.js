@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Habits, Kernel, KernelCollection } = require("../models");
+const { User, Kernel } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -11,7 +11,7 @@ const resolvers = {
                 _id: context.user._id
             })
                 .select('-__v -password')
-                .populate('kernelCollection');
+                .populate('savedKernels');
             return userData;
         }
         throw new AuthenticationError('You must be logged in')
@@ -39,17 +39,17 @@ const resolvers = {
     //   }
     //   throw new AuthenticationError("not logged in");
     // },
-    kernelCollection: async (parent, { _id }, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: "collection",
-          populate: "kernel",
-        });
+    // kernelCollection: async (parent, { _id }, context) => {
+    //   if (context.user) {
+    //     const user = await User.findById(context.user._id).populate({
+    //       path: "collection",
+    //       populate: "kernel",
+    //     });
 
-        return user.order.id(_id);
-      }
-      throw new AuthenticationError("not logged in");
-    },
+    //     return user.order.id(_id);
+    //   }
+    //   throw new AuthenticationError("not logged in");
+    // },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -58,21 +58,20 @@ const resolvers = {
 
       return { token, user };
     },
-    addKernel: async (parent, { kernel }, context) => {
+    addKernel: async (parent, { input }, context) => {
       // unsure about this one
-      console.log(context);
+      // console.log(context);
       if (context.user) {
-        const newKernel = new KernelCollection({ kernel });
-
-        await User.findByIdAndUpdate(context.user.id, {
-          $push: { collections: newKernel },
-        });
-
-        return newKernel;
-      }
-
-      throw new AuthenticationError("You must be logged in to do that!");
-    },
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { savedKernels: input } },
+          { new: true } 
+      );
+      return updatedUser;
+  }
+  // else throw auth error
+  throw new AuthenticationError('You must be logged in')
+},
     // updateUser: async (parent, args, context) => {
     //   if (context.user) {
     //     return await User.findByIdAndUpdate(context.user.id, args, {
