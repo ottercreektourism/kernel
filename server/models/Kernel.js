@@ -22,22 +22,17 @@ const kernelSchema = new Schema({
     max: 150,
     required: true,
   },
-  habits: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Habits",
-    },
-  ],
   dayRating: {
     type: Number,
     min: 0,
     max: 10,
     required: true,
   },
+  habits: [String]
 });
 
-const Kernel = mongoose.model("Kernel", kernelSchema);
+// const Kernel = mongoose.model("Kernel", kernelSchema);
 
-module.exports = Kernel;
+module.exports = kernelSchema;
 
 // think of this as the product added to the 'shopping cart' it gets timestamped to be sorted in the grid

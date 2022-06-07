@@ -2,41 +2,29 @@ const { ApolloServer, gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
+    _id: ID!
     firstName: String
     email: String
-    kernelCollection: [KernelCollection]
-    habits: [Habits]
-  }
+    savedKernels: [Kernel]
 
-  type Habits {
-    _id: ID
-    name: String
-  }
-
-  type KernelCollection {
-    _id: ID
-    kernel: Kernel
   }
 
   type Kernel {
-    _id: ID
+    _id: ID!
     submissionDate: String
     proud: String
     excite: String
     intention: String
-    habits: [Habits]
     dayRating: Int
+    habits: [String]
   }
 
-  input KernelInput {
-    _id: ID
-    submissionDate: String
+  input kernelInput {
     proud: String
     excite: String
     intention: String
-    habits: [String]
     dayRating: Int
+    habits: [String]
   }
 
   type Auth {
@@ -45,20 +33,13 @@ const typeDefs = gql`
   }
 
   type Query {
-    kernelCollection(_id: ID!): [KernelCollection]
-    kernel(_id: ID!): Kernel
-    user: User
-    habits: [Habits]
-  }
-
-  type Query {
     me: User
   } 
   
   type Mutation {
     addUser(firstName: String!, email: String!, password: String!): Auth
-    addKernel(kernel: KernelInput!): Kernel
     login(email: String!, password: String!): Auth
+    addKernel(input: kernelInput!): User
   }
 `;
 

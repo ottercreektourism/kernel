@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-const KernelCollection = require("./Collection");
+// const KernelCollection = require("./Collection");
 const bcrypt = require('bcrypt');
+const { Schema, model } = require('mongoose');
+const kernelSchema = require('./Kernel');
 
-
-const { Schema } = mongoose;
 
 const userSchema = new Schema({
   firstName: {
@@ -21,8 +21,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  kernelCollection: [KernelCollection.schema],
-  habits: [String],
+  savedKernels: [kernelSchema],
 });
 
 userSchema.pre("save", async function (next) {
