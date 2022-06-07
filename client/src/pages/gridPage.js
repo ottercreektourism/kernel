@@ -1,15 +1,45 @@
 import "../App.css";
 import Calendar from "../components/Calendar";
 import css from './gridPage.css'
+
+import { useQuery } from '@apollo/client';
+import { GET_ME } from '../utils/queries';
+import React, { useState } from 'react';
+import { Button, Fade } from 'react-bootstrap';
+
 import DayRating from '../components/Dropdown';
 
+
 function GridPage() {
+  // const [showModal, setShowModal] = useState(false);
+  const [open, setOpen] = useState(false);
   var today = new Date();
   var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
   var year = today.getFullYear();
   var month = today.getMonth() + 1;
   var day = today.getDate();
+  const { loading, data } = useQuery(GET_ME);
+  const userData = data?.me || [];
+  console.log(userData)
+console.log(userData.firstName)
+const meow = userData.savedKernels[0].submissionDate
+console.log(new Date(meow * 1000))
 
+// console.log(userData.savedKernels[0].excite)
+// console.log(userData.savedKernels[0].proud)
+// console.log(userData.savedKernels[0].intention)
+
+// for(let i=0; i < userData.savedKernels.length; i++) {
+//     let excite = userData.savedKernels[i].excite
+//     let submission = userData.savedKernels[i].submissionDate
+
+//     console.log(excite, submission)
+//     // console.log(userData.savedKernels[i]._id)
+
+// }
+
+
+  
   console.log(date)
   return (
     <div className="grid">
@@ -19,9 +49,29 @@ function GridPage() {
       <div className="mx-auto mt-4">
         <h5>Click on the grid squares to see your daily results.</h5>{" "}
       </div>
-      <div>
-        <DayRating />
-      </div>
+
+      <div className="d-flex">
+        {userData.savedKernels.map((info) => {
+            return (
+              // <button key={info.submissionDate}>{info.submissionDate}</button>
+              <>
+              <div className="card" style={{width: '18rem'}}>
+  <div className="card-header">
+    {info.submissionDate}{console.log(new Date(info.submissionDate * 1))
+}
+  </div>
+  <ul className="list-group list-group-flush">
+    <li className="list-group-item">Proud: {info.proud}</li>
+    <li className="list-group-item">Excite: {info.excite}</li>
+    <li className="list-group-item">Daily intention: {info.intention}</li>
+    
+  </ul>
+</div>
+            </>
+            );
+          })}
+          </div>
+
 
       <Calendar
         month={month}
