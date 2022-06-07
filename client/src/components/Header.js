@@ -8,6 +8,7 @@ import { GET_ME } from '../utils/queries';
 function Header() {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
+  console.log(userData)
 console.log(userData.firstName)
 
 
