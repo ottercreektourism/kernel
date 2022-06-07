@@ -58,6 +58,7 @@ const Activities = (props) => {
     const newNamesList = namesList.concat({name, id: uuidv4()});
     setNamesList(newNamesList);
     setName('');
+    // namesList.classList.add("selected");
   }
 
   const handleClick = (e) => {
@@ -90,7 +91,7 @@ const Activities = (props) => {
         <input type="text" placeholder="Add new" value={name} onChange={handleChange} />
       </div>
       <div>
-        <button className="btn-dark"type="button" onClick={handleAdd}>Add</button>
+        <button className="btn-dark addbtn"type="button" onClick={handleAdd}>Add</button>
       </div>
     </div>
   );

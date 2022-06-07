@@ -11,7 +11,7 @@ const DayRating = ({rating, handleSelect}) => {
   return (
       <>
     <Dropdown onSelect={handleSelect}>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown.Toggle className='btn btn-sm dropdown-toggle' id="dropdown-basic dropdown">
         How would you rate your day?
       </Dropdown.Toggle>
 
@@ -23,7 +23,7 @@ const DayRating = ({rating, handleSelect}) => {
         <Dropdown.Item eventKey="5">Very happy</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
-    <h4>You selected {rating}</h4>
+    {/* <h4>You selected {rating}</h4> */}
     </>
   );
 };

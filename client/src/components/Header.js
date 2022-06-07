@@ -15,8 +15,7 @@ console.log(userData.firstName)
   return (
     <div className="mx-auto mt-4">
       {console.log(userData)}
-
-      <h3>Hi, {userData.firstName} how was your day?</h3>
+      <h1>Hi {userData.firstName}, how was your day?</h1>
     </div>
 
   );
