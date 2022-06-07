@@ -47,54 +47,6 @@ const FormSubmission = () => {
         });
       };
       
-
-// class FormSubmission extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-//       proudInput: "",
-//       exciteInput: "",
-//       intentionInput: "",
-//       error: "",
-//       isSubmitted: false,
-//     };
-
-//     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-//     this.handleProudChange = this.handleProudChange.bind(this);
-//     this.handleExciteChange = this.handleExciteChange.bind(this);
-//     this.handleIntentionChange = this.handleIntentionChange.bind(this);
-//   }
-
-//   handleFormSubmit(e) {
-//     e.preventDefault();
-//     console.log("words");
-//     if (
-//       !this.state.proudInput ||
-//       !this.state.exciteInput ||
-//       !this.state.intentionInput
-//     ) {
-//       this.setState(() => ({
-//         error: "Please fill in your journal prompts before submitting!",
-//       }));
-//     } else {
-      
-//       this.setState(() => ({ error: "" }, { isSubmitted: true }));
-
-  // handleProudChange(e) {
-  //   const proudInput = e.target.value;
-  //   this.setState({ proudInput });
-  // }
-  // handleExciteChange(e) {
-  //   const exciteInput = e.target.value;
-  //   this.setState({ exciteInput });
-  // }
-  // handleIntentionChange(e) {
-  //   const intentionInput = e.target.value;
-  //   this.setState({ intentionInput });
-  // }
-
-
     return (
       <>
             <div className="row">
@@ -104,18 +56,6 @@ const FormSubmission = () => {
           <div className="d-inline p-2">
             <div className="form-group col-md-8">
               <label htmlFor="proudInput"></label>
-              {/* <Form.Group>
-          <Form.Label htmlFor='proud'>Name</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='What did you feel most proud of today'
-            name='proud'
-            onChange={handleInputChange}
-            value={userFormData.proud}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>Name is required!</Form.Control.Feedback>
-        </Form.Group> */}
               <textarea
                 name="proud"
                 placeholder="What did you feel most proud of today?"
@@ -157,7 +97,7 @@ const FormSubmission = () => {
             </div>
           </div>
           <div>
-            <Button type="button" as={Link} to="/submittedDT" onClick={handleFormSubmit}>submit</Button>
+            <Button className="btn-dark" type="button" as={Link} to="/submittedDT" onClick={handleFormSubmit}>submit</Button>
           </div>
         </Form>
         </div>

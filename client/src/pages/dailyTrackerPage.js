@@ -36,7 +36,7 @@ function DailyTracker() {
       <DailyTrackerForm />
       <div>
         {/* TODO: make the button save data from the whole page and allocate it to the present day */}
-        <Button type="button" as={Link} to="/submittedDT">Done</Button>
+        <Button className="btn btn-dark" type="button" as={Link} to="/submittedDT">Done</Button>
       </div>
     </div>
   );

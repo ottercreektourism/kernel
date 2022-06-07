@@ -90,7 +90,7 @@ const Activities = (props) => {
         <input type="text" placeholder="Add new" value={name} onChange={handleChange} />
       </div>
       <div>
-        <button type="button" onClick={handleAdd}>Add</button>
+        <button className="btn-dark"type="button" onClick={handleAdd}>Add</button>
       </div>
     </div>
   );
