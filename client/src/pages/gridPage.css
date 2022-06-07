@@ -27,6 +27,27 @@
   .current {
     background: #d3edd3;
   }
+
+  .rate1 {
+    background: #995343;
+  }
+
+  .rate2 {
+    background: #FFB4A3;
+  }
+
+  .rate3 {
+    background: #E6907D;
+  }
+
+  .rate4 {
+    background: #349975;
+  }
+
+  .rate5 {
+    background: #7CE6BF;
+  }
+ 
   
   .current .date {
     font-weight: bold;
