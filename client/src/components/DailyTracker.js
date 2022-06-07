@@ -2,6 +2,9 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+// import DayRating from '../components/Slider';
+import DayRating from '../components/Dropdown';
+
 
 
 class FormSubmission extends React.Component {
@@ -102,6 +105,9 @@ class FormSubmission extends React.Component {
                 onChange={this.handleIntentionChange}
               ></textarea>
             </div>
+          </div>
+          <div>
+            <DayRating />
           </div>
           <div>
             <Button type="button" as={Link} to="/submittedDT" onClick={this.handleFormSubmit}>submit</Button>

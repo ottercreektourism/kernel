@@ -1,6 +1,7 @@
 import "../App.css";
 import Calendar from "../components/Calendar";
 import css from './gridPage.css'
+import DayRating from '../components/Dropdown';
 
 function GridPage() {
   var today = new Date();
@@ -17,6 +18,9 @@ function GridPage() {
       </div>
       <div className="mx-auto mt-4">
         <h5>Click on the grid squares to see your daily results.</h5>{" "}
+      </div>
+      <div>
+        <DayRating />
       </div>
 
       <Calendar
