@@ -37,7 +37,12 @@ const initialList = [
   },
 ];
 
-const Activities = () => {
+// useState call checked() array -- when one is clicked, it will be added to array updating state, when clicked again removed from array. 
+// array var will be array of Str that gets stored within Kernel
+// in kernel we will have array of strings, only ones selected
+
+
+const Activities = (props) => {
   //   make the list stateful in order to enable user to add one list item
   const [namesList, setNamesList] = React.useState(initialList);
   const [name, setName] = React.useState('');
@@ -58,11 +63,16 @@ const Activities = () => {
   const handleClick = (e) => {
       // toggles whether the square is selected
     const item = e.target;
+    console.log(item.textContent)
     if (item.classList.contains("selected")) {
       item.classList.remove("selected");
+      // new array everything except habit
+      props.setCheckedHabits(props.checkedHabits.filter((habit) => habit !== item.textContent))
     } else {
+      if(!props.checkedHabits.includes(item.textContent)) props.setCheckedHabits([...props.checkedHabits, item.textContent])
       item.classList.add("selected");
     }
+    // setcheckedList func - if selected state add to array, if else remove from array 
   };
 
   return (

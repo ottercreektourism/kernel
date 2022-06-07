@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 // Sample events calendar build, explained and detailed over at
 // https://justacoding.blog/react-calendar-component-example-with-events/
 
+// each day // check saved date for user -- if savedkernel . length - render to calendar -- map saved kernels for date 
+
+
 const { useState, useEffect, Fragment } = React
 
 // Some config for convenience

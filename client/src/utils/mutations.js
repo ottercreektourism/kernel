@@ -24,3 +24,13 @@ export const LOGIN_USER = gql`
       }
   }
 `;
+
+export const ADD_KERNEL = gql`
+  mutation addKernel($input: kernelInput!) {
+      addKernel(input: $input) {
+        
+              _id
+          
+      }
+  }
+`;
