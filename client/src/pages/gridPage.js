@@ -24,7 +24,7 @@ function GridPage() {
 console.log(userData.firstName)
 const meow = userData.savedKernels[0].submissionDate
 console.log(new Date(meow * 1000))
-
+console.log(userData.savedKernels[0].dayRating)
 // console.log(userData.savedKernels[0].excite)
 // console.log(userData.savedKernels[0].proud)
 // console.log(userData.savedKernels[0].intention)
@@ -61,9 +61,12 @@ console.log(new Date(meow * 1000))
 }
   </div>
   <ul className="list-group list-group-flush">
+  <li className="list-group-item">Daily rating: {info.dayRating}</li>
     <li className="list-group-item">Proud: {info.proud}</li>
     <li className="list-group-item">Excite: {info.excite}</li>
     <li className="list-group-item">Daily intention: {info.intention}</li>
+    <li className="list-group-item">Habits: {info.habits}</li>
+
     
   </ul>
 </div>
