@@ -28,7 +28,7 @@ function KernelsOfEncouragement() {
         onChange={(event) => setNewKernel(event.target.value)}
       />
       {/* submits the kernel when the button is clicked */}
-      <Button onClick={submitKernel}>send</Button>
+      <Button className="btn btn-dark" onClick={submitKernel}>Send</Button>
     </div>
     
     // below is an alternate way of using the form submission

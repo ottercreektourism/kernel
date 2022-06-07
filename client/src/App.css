@@ -122,6 +122,9 @@ button {
   justify-content: center;
   /* border-radius: 10px; */
 }
+/* .addbtn {
+  width:
+} */
 
 button:hover {
   background-color: black;
@@ -182,13 +185,21 @@ h1 {
 } */
 
 .item {
-  width: 40px;
+  width: 60px;
   /* min-width: 40px; */
   height: 40px;
   min-height: 40px;
   background-color: rgb(94, 93, 196);
   margin: 10px;
   border-radius: 10px;
+}
+
+.listItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  border: 3px solid rgb(41, 11, 124);
 }
 
 .item.selected {
@@ -205,4 +216,11 @@ label {
 
 .listItems {
   float: left;
+}
+
+
+#dropdown{
+  color: white;
+  font-weight: bold;
+  background-color: red;
 }
