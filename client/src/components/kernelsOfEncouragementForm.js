@@ -23,7 +23,6 @@ function KernelsOfEncouragement() {
     });
   };
 
-
   return (
 
     <div className="d-flex mx-auto mt-4">
