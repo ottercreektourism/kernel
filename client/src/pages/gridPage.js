@@ -4,11 +4,7 @@ import css from "./gridPage.css";
 import { useQuery } from "@apollo/client";
 import { GET_ME } from "../utils/queries";
 import React, { useState } from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+
 
 function GridPage() {
   // const [showModal, setShowModal] = useState(false);
