@@ -1,6 +1,6 @@
-import "../App.css";
+// import "../App.css";
 import Calendar from "../components/Calendar";
-import css from './gridPage.css'
+// import css from './gridPage.css'
 
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';

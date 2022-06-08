@@ -52,11 +52,11 @@ function Resources() {
   //   .catch(error => {
   //     console.error(error);
   //   });
-  const mystyle = {
-    padding: "10px",
-    height: '278px',
-    width: '400px'
-  };
+  // const mystyle = {
+  //   padding: "10px",
+  //   height: '278px',
+  //   width: '400px'
+  // };
 
   return (
 
@@ -68,7 +68,7 @@ function Resources() {
         {resourceInfo.map((info) => {
           return (
             <div className="card">
-              <img className="card-img-top" style={mystyle}src={require(`../images/${info.image}`)} alt="Card image cap"></img>
+              <img className="card-img-top" src={require(`../images/${info.image}`)} alt="Card image cap"></img>
               <div className="card-body">
                 <h5 className="card-title">{info.name}</h5>
                 <p className="card-text">{info.description}</p>

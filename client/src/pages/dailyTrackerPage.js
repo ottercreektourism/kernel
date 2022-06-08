@@ -1,5 +1,5 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import './dailyTracker.css'
 import React from "react";
 import DailyTrackerForm from "../components/DailyTracker";
 import TodaysActivitiesDT from "../components/todaysActivitiesDT";

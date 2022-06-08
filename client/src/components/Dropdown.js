@@ -11,7 +11,7 @@ const DayRating = ({rating, handleSelect}) => {
   return (
       <>
     <Dropdown onSelect={handleSelect}>
-      <Dropdown.Toggle className='btn btn-sm dropdown-toggle' id="dropdown-basic dropdown">
+      <Dropdown.Toggle className='btn btn-dark dropdown-toggle d-flex' id="dropdown-basic dropdown">
         How would you rate your day?
       </Dropdown.Toggle>
 

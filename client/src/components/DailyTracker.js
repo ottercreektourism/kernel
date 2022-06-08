@@ -123,7 +123,7 @@ const FormSubmission = () => {
               </div>
               <div>
                 <Button
-                  className="btn btn-dark"
+                  className="btn btn-dark m-2"
                   type="button"
                   as={Link}
                   to={"/submittedDT"}
