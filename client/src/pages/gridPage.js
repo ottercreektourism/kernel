@@ -21,26 +21,54 @@ function GridPage() {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
   console.log(userData)
-console.log(userData.firstName)
-const meow = userData.savedKernels[0].submissionDate
-console.log(new Date(meow * 1000))
-console.log(userData.savedKernels[0].dayRating)
-// console.log(userData.savedKernels[0].excite)
-// console.log(userData.savedKernels[0].proud)
-// console.log(userData.savedKernels[0].intention)
+  console.log(userData.firstName)
+  const meow = userData.savedKernels[0].submissionDate
+  console.log(new Date(meow * 1000))
+  console.log(userData.savedKernels[0].dayRating)
+  // console.log(userData.savedKernels[0].excite)
+  // console.log(userData.savedKernels[0].proud)
+  // console.log(userData.savedKernels[0].intention)
 
-// for(let i=0; i < userData.savedKernels.length; i++) {
-//     let excite = userData.savedKernels[i].excite
-//     let submission = userData.savedKernels[i].submissionDate
+  // for(let i=0; i < userData.savedKernels.length; i++) {
+  //     let excite = userData.savedKernels[i].excite
+  //     let submission = userData.savedKernels[i].submissionDate
 
-//     console.log(excite, submission)
-//     // console.log(userData.savedKernels[i]._id)
+  //     console.log(excite, submission)
+  //     // console.log(userData.savedKernels[i]._id)
 
-// }
+  // }
+
+  function timeConverter(UNIX_timestamp) {
+    var a = new Date(UNIX_timestamp * 1);
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+    return time;
+  }
+  console.log(timeConverter(0));
 
 
-  
-  console.log(date)
+  function uuidv4() {
+    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+  }
+
+  function handleButtonClick(event) {
+    event.preventDefault();
+
+    if (event.target.id === userData.submissionDate) {
+      console.log(true)
+    }
+  }
+
+  console.log(uuidv4());
+
   return (
     <div className="grid">
       <div className="mx-auto mt-4 mb-4">
@@ -51,79 +79,38 @@ console.log(userData.savedKernels[0].dayRating)
       </div>
 
       <div className="d-flex">
+        {/* {userData.savedKernels.length ? */}
         {userData.savedKernels.map((info) => {
-            return (
-              // <button key={info.submissionDate}>{info.submissionDate}</button>
-              <>
-              <div className="card" style={{width: '18rem'}}>
-  <div className="card-header">
-    {info.submissionDate}{console.log(new Date(info.submissionDate * 1))
-}
-  </div>
-  <ul className="list-group list-group-flush">
-  <li className="list-group-item">Daily rating: {info.dayRating}</li>
-    <li className="list-group-item">Proud: {info.proud}</li>
-    <li className="list-group-item">Excite: {info.excite}</li>
-    <li className="list-group-item">Daily intention: {info.intention}</li>
-    <li className="list-group-item">Habits: {info.habits}</li>
+          const newId = uuidv4()
+          // const newDate = new Date(info.submissionDate * 1)
+          return (
+            // <button key={info.submissionDate}>{info.submissionDate}</button>
+            <>
+              <div className="card" style={{ width: '18rem' }}>
+                <div className="card-header">
+                </div>
+                {/* {timeConverter(info.submissionDate)} */}
+                {/* {console.log(new Date(info.submissionDate * 1))
+} */}
+                <button onClick={handleButtonClick} id={info.submissionDate}>{timeConverter(info.submissionDate)}</button>
+                <ul className="list-group list-group-flush" id={info.submissionDate}>
+                  <li className="list-group-item">Daily rating: {info.dayRating}</li>
+                  <li className="list-group-item">Proud: {info.proud}</li>
+                  <li className="list-group-item">Excite: {info.excite}</li>
+                  <li className="list-group-item">Daily intention: {info.intention}</li>
+                  <li className="list-group-item">Habits: {info.habits.join(', ')}</li>
 
-    
-  </ul>
-</div>
+
+
+                </ul>
+              </div>
             </>
-            );
-          })}
-          </div>
+          );
+        })}
+      </div>
 
 
-      <Calendar
-        month={month}
-        year={year}
-        preloadedEvents={[
-          {
-            id: 1,
-            name: "Holiday",
-            dateFrom: "2021-09-29T12:00",
-            dateTo: "2021-10-03T08:45",
-            type: "Holiday"
-          },
-          {
-            id: 2,
-            name: "Meeting",
-            dateFrom: "2021-10-01T09:45",
-            dateTo: "2021-10-04T22:00",
-            type: "Standard"
-          },
-          {
-            id: 3,
-            name: "Away",
-            dateFrom: "2021-10-01T01:00",
-            dateTo: "2021-10-01T23:59",
-            type: "Busy"
-          },
-          {
-            id: 4,
-            name: "Inspection",
-            dateFrom: "2021-10-19T07:30",
-            dateTo: "2021-10-21T23:59",
-            type: "Standard"
-          },
-          {
-            id: 5,
-            name: "Holiday - Greece",
-            dateFrom: "2021-10-14T08:00",
-            dateTo: "2021-10-16T23:59",
-            type: "Holiday"
-          },
-          {
-            id: 6,
-            name: "Holiday - Spain",
-            dateFrom: "2021-10-29T08:00",
-            dateTo: "2021-10-31T23:59",
-            type: "Holiday"
-          }
-        ]}
-      />
+      <Calendar />
     </div>
   );
 };
