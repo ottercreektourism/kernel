@@ -6,24 +6,6 @@ import Auth from '../utils/auth';
 const axios = require('axios');
 
 function Login() {
-//   const api_url ="https://zenquotes.io/api/quotes/";
-
-//  const quoteTime = () => {
-//     axios
-//     .get('https://type.fit/api/quotes')
-//     .then(res => {
-//       let arrayIndex = Math.floor(Math.random() * res.data.length);
-//       console.log(arrayIndex)
-//       const randomtxt = res.data[arrayIndex].text
-//       const randomauthor = res.data[arrayIndex].author
-//       console.log(randomtxt, randomauthor)
-      
-//     })
-//     .catch(error => {
-//       console.error(error);
-//     });
-//   };
-//   quoteTime();
 
   return (
 

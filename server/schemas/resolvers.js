@@ -16,40 +16,16 @@ const resolvers = {
         }
         throw new AuthenticationError('You must be logged in')
     },
-    // user: async (parent, args, context) => {
-    //   if (context.user) {
-    //     const userData = await User.findOne({
-    //       _id: context.user._id,
-    //     })
-    //       .select("-__v -password")
-    //       .populate("kernelCollection");
-    //     return userData;
-    //   }
-    //   throw new AuthenticationError("You must be logged in");
-    // },
-
-    // user: async (parent, args, context) => {
-    //   if (context.user) {
-    //     const user = await User.findById(context.user._id).populate({
-    //       path: "collection",
-    //       populate: "kernel",
-    //     });
-
-    //     return user;
-    //   }
-    //   throw new AuthenticationError("not logged in");
-    // },
-    // kernelCollection: async (parent, { _id }, context) => {
-    //   if (context.user) {
-    //     const user = await User.findById(context.user._id).populate({
-    //       path: "collection",
-    //       populate: "kernel",
-    //     });
-
-    //     return user.order.id(_id);
-    //   }
-    //   throw new AuthenticationError("not logged in");
-    // },
+    // for querying single Kernel
+  //   singleKernel: async (parent, args) => {
+  //         const userData = await Kernel.findOne({
+  //             submissionDate: args.submissionDate
+  //         })
+  //             // .select('-__v -password')
+  //             .populate('savedKernels');
+  //         return userData;
+      
+  // },
   },
   Mutation: {
     addUser: async (parent, args) => {

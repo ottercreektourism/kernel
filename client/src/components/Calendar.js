@@ -444,7 +444,7 @@ const Calendar = () => {
     return (
         <div>
             {/* <Button type="button" key={KernelCollection.id} as={Link} to="/individualday">1</Button> */}
-            <Button type="button" onClick={handleClick} as={Link} to="/individualday">2</Button>
+            {/* <Button type="button" onClick={handleClick} as={Link} to="/individualday">2</Button>
             <Button type="button" onClick={handleClick} as={Link} to="/individualday">3</Button>
             <Button type="button" onClick={handleClick} as={Link} to="/individualday">4</Button>
             <Button type="button" onClick={handleClick} as={Link} to="/individualday">5</Button>
@@ -454,7 +454,7 @@ const Calendar = () => {
             <Button type="button" onClick={handleClick} as={Link} to="/individualday">9</Button>
             <Button type="button" onClick={handleClick} as={Link} to="/individualday">10</Button>
             <Button type="button" onClick={handleClick} as={Link} to="/individualday">11</Button>
-            <Button type="button" onClick={handleClick} as={Link} to="/individualday">12</Button>
+            <Button type="button" onClick={handleClick} as={Link} to="/individualday">12</Button> */}
         </div>
     );
 };

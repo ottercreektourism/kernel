@@ -18,9 +18,9 @@ function DailyTracker() {
         </div>
       </div>
       <DailyTrackerForm />
-      <div>
+      {/* <div>
         <Button className="btn btn-dark" type="button" as={Link} to="/submittedDT">Done</Button>
-      </div>
+      </div> */}
     </div>
   );
 }
