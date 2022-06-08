@@ -1,13 +1,14 @@
 // import "../App.css";
 import Calendar from "../components/Calendar";
 // import css from './gridPage.css'
-
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 import React, { useState } from 'react';
-import { Button, Fade } from 'react-bootstrap';
-
-import DayRating from '../components/Dropdown';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 
 function GridPage() {
@@ -79,20 +80,23 @@ function GridPage() {
       </div>
 
       <div className="d-flex">
+        
         {/* {userData.savedKernels.length ? */}
         {userData.savedKernels.map((info) => {
           const newId = uuidv4()
-          // const newDate = new Date(info.submissionDate * 1)
+          const newDate = new Date(info.submissionDate * 1)
           return (
+
+
             // <button key={info.submissionDate}>{info.submissionDate}</button>
             <>
-              <div className="card" style={{ width: '18rem' }}>
+              {/* <div className="card" style={{ width: '18rem' }}>
                 <div className="card-header">
                 </div>
                 {/* {timeConverter(info.submissionDate)} */}
                 {/* {console.log(new Date(info.submissionDate * 1))
 } */}
-                <button onClick={handleButtonClick} id={info.submissionDate}>{timeConverter(info.submissionDate)}</button>
+                {/* <button onClick={handleButtonClick} id={info.submissionDate}>{timeConverter(info.submissionDate)}</button>
                 <ul className="list-group list-group-flush" id={info.submissionDate}>
                   <li className="list-group-item">Daily rating: {info.dayRating}</li>
                   <li className="list-group-item">Proud: {info.proud}</li>
@@ -103,7 +107,36 @@ function GridPage() {
 
 
                 </ul>
-              </div>
+              </div> */}
+              <div className="d-flex mx-auto mt-4">
+  <div className="accordion justify-content-center" id="accordionExample">
+  <div className="card m-2">
+    <div className="card-header" id="headingOne">
+      <h2 className="mb-0">
+        <button className="btn text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        {timeConverter(info.submissionDate)}
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+      <ul className="list-group list-group-flush" id={info.submissionDate}>
+                  <li className="list-group-item">Daily rating: {info.dayRating}</li>
+                  <li className="list-group-item">Proud of: {info.proud}</li>
+                  <li className="list-group-item">Excited for: {info.excite}</li>
+                  <li className="list-group-item">Intent for tomorrow: {info.intention}</li>
+                  <li className="list-group-item">Habits: {info.habits.join(', ')}</li>
+
+
+
+                </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
             </>
           );
         })}

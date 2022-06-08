@@ -6,14 +6,6 @@ function KernelsOfEncouragement() {
   const [newKernel, setNewKernel] = useState("");
 
   // function to register that a kernel was submitted so it can be put into the array.
-  // TODO: make sure the kernel doesnt get sent back to original user
-  // const submitKernel = () => {
-  //   fetch("/TODO", {
-  //     method: "POST",
-  //     body: newKernel,
-  //   });
-  //   console.log(newKernel);
-  // };
   
  const quoteTime = () => {
     axios
