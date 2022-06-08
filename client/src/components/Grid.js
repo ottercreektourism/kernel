@@ -37,22 +37,6 @@ export default Grid;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function setKernels() {
 //   // set equal to emply array so that all the kernels can join that array
 //   const [kernel, setKernel] = useState([]);
