@@ -16,13 +16,22 @@ db.once("open", async () => {
       name: "Caffeine",
     },
     {
+      name: "Enough sleep",
+    },
+    {
       name: "Ate late",
+    },
+    {
+      name: "Social Event",
     },
     {
       name: "Alcohol",
     },
     {
       name: "Smoking",
+    },
+    {
+      name: "Sex",
     },
     {
       name: "Pain",
@@ -35,6 +44,15 @@ db.once("open", async () => {
     },
     {
       name: "Sick",
+    },
+    {
+      name: "Not enough sleep",
+    },
+    {
+      name: "Meditation",
+    },
+    {
+      name: "Proper nutrition",
     },
   ]);
   console.log("habits seeded");

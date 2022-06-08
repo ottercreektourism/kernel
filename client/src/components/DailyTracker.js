@@ -75,14 +75,22 @@ const FormSubmission = () => {
       <div className="row">
         <div className="row dt dailytrackerform col-8">
           <div className="column-left dailytrackerform">
-            <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+            <Form
+              noValidate
+              validated={validated}
+              onSubmit={handleFormSubmit}
+              className="form-width col-12"
+            >
               <div className="d-inline p-2">
-                <div className="form-group col-md-8">
+                <div className="form-group">
+                  <br />
+                  <br />
+                  <h5>Daily Journal</h5>
                   <label htmlFor="proudInput"></label>
                   <textarea
                     name="proud"
                     placeholder="What did you feel most proud of today?"
-                    className="form-control"
+                    className="form-control col-8"
                     id="exampleFormControlTextarea1"
                     rows="3"
                     value={userFormData.proud}
@@ -93,7 +101,7 @@ const FormSubmission = () => {
                     Name is required!
                   </Form.Control.Feedback>
                 </div>
-                <div className="form-group col-md-8">
+                <div className="form-group">
                   <label htmlFor="exciteInput"></label>
                   <textarea
                     name="excite"
@@ -105,7 +113,7 @@ const FormSubmission = () => {
                     onChange={handleInputChange}
                   ></textarea>
                 </div>
-                <div className="form-group col-md-8">
+                <div className="form-group">
                   <label htmlFor="intentionInput"></label>
                   <textarea
                     name="intention"
@@ -121,7 +129,8 @@ const FormSubmission = () => {
               <div>
                 <DayRating rating={rating} handleSelect={handleSelect} />
               </div>
-              <div>
+
+              <div className="d-flex">
                 <Button
                   className="btn btn-dark m-2"
                   type="button"
@@ -136,9 +145,10 @@ const FormSubmission = () => {
           </div>
         </div>
         <div className="row dt activities ms-auto mt-4 col-4">
-          <h6>
-            Click to select each factor that applies to you today.
-          </h6>
+        <br />
+        <br />
+        <br />
+          <h5>Select today's factors:</h5>
           <div className="column-right activities">
             <Activities
               checkedHabits={checkedHabits}
