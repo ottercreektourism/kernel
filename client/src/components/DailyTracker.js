@@ -85,7 +85,7 @@ const FormSubmission = () => {
                 <div className="form-group">
                   <br />
                   <br />
-                  <h5>Daily Journal</h5>
+                  <h5>Kernel Journal</h5>
                   <label htmlFor="proudInput"></label>
                   <textarea
                     name="proud"
@@ -148,7 +148,7 @@ const FormSubmission = () => {
         <br />
         <br />
         <br />
-          <h5>Select today's factors:</h5>
+          <h5>Select today's kernels:</h5>
           <div className="column-right activities">
             <Activities
               checkedHabits={checkedHabits}

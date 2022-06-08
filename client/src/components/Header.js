@@ -13,7 +13,7 @@ console.log(userData.firstName)
 
 
   return (
-    <div className="mx-auto mt-4 header">
+    <div className="ml-auto mt-4 header">
       {console.log(userData)}
       <h1>Hi {userData.firstName}, how was your day?</h1>
     </div>
