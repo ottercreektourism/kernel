@@ -90,7 +90,7 @@ const Activities = (props) => {
       <div>
         <input type="text" placeholder="Add new" value={name} onChange={handleChange} />
       </div>
-      <div>
+      <div className="d-flex m-2 justify-content-center">
         <button className="btn-dark addbtn"type="button" onClick={handleAdd}>Add</button>
       </div>
     </div>

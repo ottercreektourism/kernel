@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# kernel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This application is a resource/tool for users who are looking to track their personal achievements, track their habits, and set their intentions for the future.
+Once signed in, the user has access to submit an entry of what they felt most proud of, what excites them in the coming week, and also set their intention for tomorrow. There are button selections on the side that allow the user to track their daily habits, ie. whether they had caffeine, exercised etc. The front end was created using React with React Bootstrap. Back end was created with node.js and utilizes a MongoDB database. 
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Track daily entries related to the users habits
+* Utilize the 'Resources' tab for websites dedicated to wellness and focus
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Table of contents
 
-### `npm run build`
+* [Screenshots](#screenshots)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [Usage](#usage)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* [Contributors](#contributors)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* [How to Contribute](#how-to-contribute)
 
-### `npm run eject`
+* [Links](#links)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* [References](#references)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
+## Screenshots
+<!-- <img src="public/img/updated-screen-shot.png" alt="drawing" height="600" width="700"/> -->
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+--- 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Once signed up and signed in, user can immediately utilize the 'Daily Tracker page where they are able to create/view posts about their day and select a rating from 1-5 of how they felt that day. Clicking on the Grid link on the navbar will show the user's past inputs. Resources has links to articles related to wellness and meditation. 
 
-### Code Splitting
+[Application deployed on Heroku]() 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributors
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* [Angela Donati](https://github.com/a-donati)
 
-### Making a Progressive Web App
+* [Marissa Flynn](https://github.com/ottercreektourism)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* [Andrew Maki](https://github.com/admakinh)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## How to Contribute
 
-### Deployment
+To help add functionality, or for debugging/refactoring the code, please contact one of our team members to request access as a collaborator.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Links
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# References 
+
+
