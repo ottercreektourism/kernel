@@ -9,31 +9,55 @@ const initialList = [
   },
   {
     id: "2",
-    name: "Ate late",
+    name: "Enough sleep",
   },
   {
     id: "3",
-    name: "Alcohol",
+    name: "Ate late",
   },
   {
     id: "4",
-    name: "Smoking",
+    name: "Social Event",
   },
   {
     id: "5",
-    name: "Pain",
+    name: "Alcohol",
   },
   {
     id: "6",
-    name: "Exercise",
+    name: "Smoking",
   },
   {
     id: "7",
-    name: "Stress",
+    name: "Sex",
   },
   {
     id: "8",
+    name: "Pain",
+  },
+  {
+    id: "9",
+    name: "Exercise",
+  },
+  {
+    id: "10",
+    name: "Stress",
+  },
+  {
+    id: "11",
     name: "Sick",
+  },
+  {
+    id: "12",
+    name: "Not enough sleep",
+  },
+  {
+    id: "13",
+    name: "Meditation",
+  },
+  {
+    id: "13",
+    name: "Proper nutrition",
   },
 ];
 
@@ -78,21 +102,23 @@ const Activities = (props) => {
 
   return (
     <div>
+      <div >
       <div>
         <ul>
             {/* render new list items */}
           {namesList.map((item) => (
             <li key={item.id} className="item listItems" onClick={handleClick}>{item.name}</li>
-          ))}
+            ))}
         </ul>
       </div>
       <br/>
       <div>
-        <input type="text" placeholder="Add new" value={name} onChange={handleChange} />
+        <input className=" d-flex col-5" type="text" placeholder="Add new" value={name} onChange={handleChange} />
       </div>
-      <div className="d-flex m-2 justify-content-center">
-        <button className="btn-dark addbtn"type="button" onClick={handleAdd}>Add</button>
+      <div className="d-flex col-5 m-2 justify-content-center">
+        <button className="btn-dark col-5 addbtn"type="button" onClick={handleAdd}>Add</button>
       </div>
+            </div>
     </div>
   );
 };

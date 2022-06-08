@@ -73,13 +73,20 @@
   /* Makes the whole thing scrollable */
   height: 100%;
   /* adjust width to % to make the whole screen skinnier including title*/
-  width: 80vw;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   overflow: visible;
   color: #000000;
   font-size: 13px;
   line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.html, body {
+  margin: 0;
+  padding: 0;
 }
 
 /* .dt {
@@ -185,10 +192,10 @@ h1 {
 } */
 
 .item {
-  width: 60px;
+  width: 70px;
   /* min-width: 40px; */
-  height: 40px;
-  min-height: 40px;
+  height: 10px;
+  min-height: 10px;
   background-color: rgb(94, 93, 196);
   margin: 10px;
   border-radius: 10px;
@@ -199,8 +206,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
-  border: 3px solid rgb(41, 11, 124);
+  height: 70px;
+  border: 2px solid rgb(41, 11, 124);
 }
 
 .item.selected {
@@ -216,5 +223,12 @@ label {
 }
 
 .listItems {
+  float: left;
+}
+
+.form-width {
+  width: 100%;
+}
+header {
   float: left;
 }
