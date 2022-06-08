@@ -24,7 +24,6 @@ function Login() {
 //     });
 //   };
 //   quoteTime();
-  
 
   return (
 
@@ -34,7 +33,8 @@ function Login() {
       ) : <>
       <div><h3 className=" mx-auto d-flex justify-content-center">Welcome to Kernel</h3>
       </div>
-      <div><p className=" mx-auto d-flex justify-content-center">Track your daily habits, accomplishments, and set your intentions all in one place</p>
+      <div><p className="d-flex justify-content-center"><img src={require(`../images/image.png`)} className="fade-in-image main-image"></img></p></div>
+      <div><p className=" mx-auto d-flex justify-content-center fade-in-image">Track your daily habits, accomplishments, and set your intentions all in one place</p>
       </div>
       <div className="row d-flex pt-4">
         <div className="col-md-4 mx-auto">
