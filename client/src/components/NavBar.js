@@ -30,7 +30,7 @@ function NavBar() {
               Logout
             </Nav.Link>
           </Nav>
-          ): <Nav.Link></Nav.Link> 
+           ): <Nav.Link>Login/Sign Up</Nav.Link>
           }
         </Container>
       </Navbar>

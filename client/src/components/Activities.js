@@ -1,6 +1,5 @@
 import React from "react";
-import { v4 as uuidv4 } from 'uuid';
-
+import { v4 as uuidv4 } from "uuid";
 
 const initialList = [
   {
@@ -61,15 +60,14 @@ const initialList = [
   },
 ];
 
-// useState call checked() array -- when one is clicked, it will be added to array updating state, when clicked again removed from array. 
+// useState call checked() array -- when one is clicked, it will be added to array updating state, when clicked again removed from array.
 // array var will be array of Str that gets stored within Kernel
 // in kernel we will have array of strings, only ones selected
-
 
 const Activities = (props) => {
   //   make the list stateful in order to enable user to add one list item
   const [namesList, setNamesList] = React.useState(initialList);
-  const [name, setName] = React.useState('');
+  const [name, setName] = React.useState("");
 
   function handleChange(e) {
     // track input field's state
@@ -79,46 +77,67 @@ const Activities = (props) => {
   function handleAdd() {
     // add item
     // concat method returns a new list instead of modifying the old one
-    const newNamesList = namesList.concat({name, id: uuidv4()});
+    const newNamesList = namesList.concat({ name, id: uuidv4() });
     setNamesList(newNamesList);
-    setName('');
+    setName("");
     // namesList.classList.add("selected");
   }
 
   const handleClick = (e) => {
-      // toggles whether the square is selected
+    // toggles whether the square is selected
     const item = e.target;
-    console.log(item.textContent)
+    console.log(item.textContent);
     if (item.classList.contains("selected")) {
       item.classList.remove("selected");
       // new array everything except habit
-      props.setCheckedHabits(props.checkedHabits.filter((habit) => habit !== item.textContent))
+      props.setCheckedHabits(
+        props.checkedHabits.filter((habit) => habit !== item.textContent)
+      );
     } else {
-      if(!props.checkedHabits.includes(item.textContent)) props.setCheckedHabits([...props.checkedHabits, item.textContent])
+      if (!props.checkedHabits.includes(item.textContent))
+        props.setCheckedHabits([...props.checkedHabits, item.textContent]);
       item.classList.add("selected");
     }
-    // setcheckedList func - if selected state add to array, if else remove from array 
+    // setcheckedList func - if selected state add to array, if else remove from array
   };
 
   return (
     <div>
-      <div >
       <div>
-        <ul>
+        <div>
+          <ul>
             {/* render new list items */}
-          {namesList.map((item) => (
-            <li key={item.id} className="item listItems" onClick={handleClick}>{item.name}</li>
+            {namesList.map((item) => (
+              <li
+                key={item.id}
+                className="item listItems"
+                onClick={handleClick}
+              >
+                {item.name}
+              </li>
             ))}
-        </ul>
+          </ul>
+        </div>
+        <br />
+        <div>
+          <input
+            className="d-flex col-4 addbtn"
+            type="text"
+            placeholder="Add new"
+            value={name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="d-flex col-5 m-2 justify-content-center">
+          <button
+            className="btn-dark col-4 addbtn"
+            type="button"
+            onClick={handleAdd}
+          >
+            Add
+          </button>
+        </div>
       </div>
-      <br/>
-      <div>
-        <input className=" d-flex col-5" type="text" placeholder="Add new" value={name} onChange={handleChange} />
-      </div>
-      <div className="d-flex col-5 m-2 justify-content-center">
-        <button className="btn-dark col-5 addbtn"type="button" onClick={handleAdd}>Add</button>
-      </div>
-            </div>
     </div>
   );
 };
