@@ -26,10 +26,10 @@ function KernelsOfEncouragement() {
 
   return (
 
-    <div className="d-flex">
+    <div className="d-flex mx-auto mt-4">
       {/* submits the kernel when the button is clicked */}
-      <div className="align-items-center"><h1 >{newKernel}</h1>
-      <Button className="btn btn-dark justify-content-center mt-2" onClick={quoteTime}>Click for encouragement</Button>
+      <div className="justify-content-center "><h1 >{newKernel}</h1>
+      <Button className="btn btn-dark justify-content-center mt-2 d-flex mx-auto mt-4" onClick={quoteTime}>Click for encouragement</Button>
       </div>
     </div>
     
