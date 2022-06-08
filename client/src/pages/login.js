@@ -34,7 +34,7 @@ function Login() {
       ) : <>
       <div><h3 className=" mx-auto d-flex justify-content-center">Welcome to Kernel</h3>
       </div>
-      <div><p className=" mx-auto d-flex justify-content-center">trackin the kernels</p>
+      <div><p className=" mx-auto d-flex justify-content-center">Track your daily habits, accomplishments, and set your intentions all in one place</p>
       </div>
       <div className="row d-flex pt-4">
         <div className="col-md-4 mx-auto">
