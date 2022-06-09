@@ -1,17 +1,17 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
-const { Schema } = mongoose;
+// const { Schema } = mongoose;
 
-const habitsSchema = new Schema({
-  name: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-});
+// const habitsSchema = new Schema({
+//   name: {
+//     type: String,
+//     trim: true,
+//     required: true,
+//   },
+// });
 
-const Habits = mongoose.model("Habits", habitsSchema);
+// const Habits = mongoose.model("Habits", habitsSchema);
 
-module.exports = Habits;
+// module.exports = Habits;
 
 // holds all possible habits a user can choose

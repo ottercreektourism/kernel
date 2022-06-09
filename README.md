@@ -10,7 +10,7 @@ Once signed in, the user has access to submit an entry of what they felt most pr
 
 * Track daily entries related to the users habits
 * Utilize the 'Resources' tab for websites dedicated to wellness and focus
-
+* JWT for user authentication
 
 ---
 
@@ -24,14 +24,13 @@ Once signed in, the user has access to submit an entry of what they felt most pr
 
 * [How to Contribute](#how-to-contribute)
 
-* [Links](#links)
-
-
 * [References](#references)
 
 ---
 ## Screenshots
-<!-- <img src="public/img/updated-screen-shot.png" alt="drawing" height="600" width="700"/> -->
+<img src="./client/src/images/kernel-screenshot.png" alt="drawing" height="500" width="500"/>
+<!-- <img src="./client/src/images/grid-screenshot.png" alt="drawing" height="500" width="500"/> -->
+
 
 
 --- 
@@ -40,7 +39,7 @@ Once signed in, the user has access to submit an entry of what they felt most pr
 
 Once signed up and signed in, user can immediately utilize the 'Daily Tracker page where they are able to create/view posts about their day and select a rating from 1-5 of how they felt that day. Clicking on the Grid link on the navbar will show the user's past inputs. Resources has links to articles related to wellness and meditation. 
 
-[Application deployed on Heroku]() 
+[Application deployed on Heroku](https://powerful-beyond-18772.herokuapp.com/) 
 
 ## Contributors
 
@@ -51,16 +50,14 @@ Once signed up and signed in, user can immediately utilize the 'Daily Tracker pa
 
 * [Andrew Maki](https://github.com/admakinh)
 
-
 ## How to Contribute
 
 To help add functionality, or for debugging/refactoring the code, please contact one of our team members to request access as a collaborator.
 
-## Links
-
-
-
-
 # References 
 
+* [JWT](https://jwt.io/)
+* [Encouraging quotes API](https://type.fit/api/quotes)
+* [React Bootstrap](https://react-bootstrap.github.io/)
+* [Zen person icon from icons8.com](https://icons8.com/icons/set/calm)
 

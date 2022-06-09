@@ -26,6 +26,30 @@ const resourceInfo = [
   },
 ];
 
+const videoInfo = [
+  {
+    name: "Relaxing Music 24/7, Stress Relief Music, Sleep Music, Meditation Music, Study, Calming Music",
+    description: '',
+    link: "https://www.youtube.com/watch?v=uUYGAYlOtaM",
+    image: "live.png",
+    imageAlt: "Image from mindful.org",
+  },
+  {
+    name: "Daily Calm | 10 Minute Mindfulness Meditation | Be Present",
+    description: "Tamara Levitt guides this 10 minute Daily Calm mindfulness meditation to powerfully restore and re-connect with the present.",
+    link: "https://www.youtube.com/watch?v=ZToicYcHIOU",
+    image: "be-present.png",
+    imageAlt: "",
+  },
+  {
+    name: "Daily Calm | 10 Minute Mindfulness Meditation | Letting Go",
+    description: "Tamara Levitt guides this 10 minute Daily Calm mindfulness meditation on letting go.",
+    link: "https://www.youtube.com/watch?v=syx3a1_LeFo",
+    image: "lettinggo.png",
+    imageAlt: "",
+  },
+];
+
 function Resources() {
 
   // axios
@@ -81,19 +105,19 @@ function Resources() {
         })}
       </div>
 {/* videos */}
-      <div className="mx-auto mt-4 mb-4"><h3>Guided Meditation Videos</h3> </div>
+      <div className="mx-auto mt-4 mb-4"><h3>Guided Meditation Videos🧘</h3> </div>
       <div className="card-group">
 
-        {resourceInfo.map((info) => {
+        {videoInfo.map((video) => {
           return (
             <div className="card">
-              <img className="card-img-top" src={require(`../images/${info.image}`)} alt="Card image cap"></img>
+              {/* <img className="card-img-top" src={require(`../images/${video.image}`)} alt="Card image cap"></img> */}
               <div className="card-body">
-                <h5 className="card-title">{info.name}</h5>
-                <p className="card-text">{info.description}</p>
+                <h5 className="card-title">{video.name}</h5>
+                <p className="card-text">{video.description}</p>
               </div>
               <div className="card-footer">
-                <a href={info.link} className="btn btn-dark" target="_blank">Website</a>
+                <a href={video.link} className="btn btn-dark" target="_blank">Click for video</a>
               </div>
             </div>
           );
