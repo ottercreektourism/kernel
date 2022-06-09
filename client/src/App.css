@@ -232,3 +232,11 @@ label {
 header {
   float: left;
 }
+
+.addbtn {
+  float: right;
+}
+
+.form-border {
+  border-style: dotted;
+}
