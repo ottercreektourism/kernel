@@ -1,4 +1,4 @@
-.calendar {
+/* .calendar {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -275,7 +275,7 @@
   }
   
   /* animated loading spinner from https://loading.io/css/ */
-  .lds-roller {
+  /* .lds-roller {
     display: inline-block;
     position: relative;
     width: 80px;
@@ -358,4 +358,14 @@
     100% {
       transform: rotate(360deg);
     }
+  } */ 
+
+
+  .background-red {
+    background-color: rgb(116, 87, 196);
+  }
+  
+  .background-blue {
+    background-color: rgb(94, 56, 198);
+    
   }

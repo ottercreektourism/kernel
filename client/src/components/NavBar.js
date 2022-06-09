@@ -11,7 +11,7 @@ function NavBar() {
           <Navbar.Brand as={Link} to="/">
             kernel
           </Navbar.Brand>
-          {/* {Auth.loggedIn() ? ( */}
+          {Auth.loggedIn() ? (
           <Nav>
 
             <Nav.Link as={Link} to="/dailytracker">
@@ -30,8 +30,8 @@ function NavBar() {
               Logout
             </Nav.Link>
           </Nav>
-          {/* ): <Nav.Link>Login/Sign Up</Nav.Link> */}
-          {/* } */}
+          ): <Nav.Link></Nav.Link> 
+          }
         </Container>
       </Navbar>
       <br />
